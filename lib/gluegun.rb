@@ -6,10 +6,7 @@ require 'erb'
 
 module Gluegun
   # Your code goes here...
-
-
     class Gluegun
-
 
       # Execute the given file using he associate app
       def read_site(file_name) 
@@ -34,28 +31,24 @@ module Gluegun
           puts "--------------------"
         end
       end
+      
+     # def help
+     #   print "
+     #   You must pass the link to file which has the site configuration.
+     #   Usage: #{__FILE__} target
+     #   "
+     # end
 
-    end
+     # unless ARGV.size > 0
+     #   help
+     #   exit
+     # end
 
-
-    def help
-      print "
-      You must pass the link to file which has the site configuration.
-      Usage: #{__FILE__} target
-      "
-    end
-
-
-    unless ARGV.size > 0
-      help
-      exit
-    end
-
-     
-
-    l = Gluegun.new  
-    target = ARGV.join ' ' 
-    l.read_site target 
+     # l = Gluegun.new  
+     # target = ARGV.join ' ' 
+     # l.read_site target 
+  end
+end
 
 
-    end
+    
