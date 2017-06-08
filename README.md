@@ -37,11 +37,3 @@ Or in your script:
 
         gluegun generate https://github.com/gluegun/site_sample_config.yml
         
- 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/gluegun. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Code of Conduct
-
-Everyone interacting in the Gluegun project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/gluegun/blob/master/CODE_OF_CONDUCT.md).
