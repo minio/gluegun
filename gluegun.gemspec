@@ -6,8 +6,8 @@ require "gluegun/version"
 Gem::Specification.new do |spec|
   spec.name          = "gluegun"
   spec.version       = Gluegun::VERSION
-  spec.authors       = ["deekoder"]
-  spec.email         = ["dee@minio.io"]
+  spec.authors       = ["minio"]
+  spec.email         = ["sysadmin@minio.io"]
 
   spec.summary       = %q{Gluegun is glues markdown docs from github and creates a beautiful docs site.}
   spec.description   = %q{Gluegun is glues markdown docs from github and pulls together a beautiful docs site. }
