@@ -1,4 +1,32 @@
 #!/usr/bin/env ruby
 
 require 'gluegun'
-Gluegun::Gluegun.help
+require 'optparse'
+
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = "Usage: gluegun COMMAND [OPTIONS]"
+  opt.separator  ""
+  opt.separator  "Commands"
+  opt.separator  "     generate: generates site"
+  opt.separator  ""
+  opt.separator  "Options"
+  opt.on("-h","--help","help") do
+    puts opt_parser
+  end
+end
+
+opt_parser.parse!
+
+case ARGV[0]
+when "generate"
+  #puts "call start on options #{options.inspect}"
+  if ARGV[1].empty?
+    puts opt_parser
+  else
+    Gluegun::Gluegun.gluegun_generate_pages ARGV[1]
+    Gluegun::Gluegun.gluegun_generate_index ARGV[1]
+  end
+else
+  puts opt_parser
+end
