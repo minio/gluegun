@@ -7,6 +7,14 @@ require 'erb'
 module Gluegun
   class Gluegun
 
+    # Generate index.html
+    #
+    # Example:
+    #   >> Gluegun:Gluegun.gluegun_generate_index("https://raw.githubusercontent.com/minio/gluegun/master/sample_site_config.yml")
+    #   => done
+    #
+    # Arguments:
+    #   file_name: (String)
     def self.gluegun_generate_index(file_name)
       open('../www/index.html', 'w') { |f|
         f << "<!DOCTYPE html>
@@ -57,6 +65,16 @@ module Gluegun
       }
     end
 
+
+    # Generate page htmls
+    #
+    # Example:
+    #   >> Gluegun:Gluegun.gluegun_generate_pages("https://raw.githubusercontent.com/minio/gluegun/master/sample_site_config.yml")
+    #   => done
+    #
+    # Arguments:
+    #   file_name: (String)
+
     def self.gluegun_generate_pages(file_name)
         yml_data = open(file_name).read
         @site_map = YAML.load(yml_data)
@@ -73,21 +91,6 @@ module Gluegun
           end
           puts "--------------------"
         end
-    end
-      
-    def self.help
-        print "
-        NAME:
-          gluegun - Glues github markdown files to a documentation site.
-
-        USAGE:
-          gluegun COMMAND [ARGUMENTS...]
-
-        COMMANDS:
-          generate Generate new docs site with an URL or file path.
-
-        "
-        puts VERSION
     end
   end
 end
