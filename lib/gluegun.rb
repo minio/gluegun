@@ -3,6 +3,7 @@ require 'yaml'
 require 'open-uri'
 require 'github/markdown'
 require 'erb'
+require 'fileutils'
 
 module Gluegun
   class Gluegun
@@ -16,7 +17,9 @@ module Gluegun
     # Arguments:
     #   file_name: (String)
     def self.gluegun_generate_index(file_name)
-      open('../www/index.html', 'w') { |f|
+      path = File.join 'www'
+      FileUtils.mkdir_p(path) unless File.exist?(path)
+      File.open(File.join(path,"index.html"), "w+") do |f|
         f << "<!DOCTYPE html>
                       <html lang=\"en\">
                           <head>
@@ -62,9 +65,8 @@ module Gluegun
           end
           f << "</ul>"
           f << "</div></div></body></html>"
-      }
     end
-
+  end
 
     # Generate page htmls
     #
@@ -77,19 +79,21 @@ module Gluegun
 
     def self.gluegun_generate_pages(file_name)
         yml_data = open(file_name).read
+        puts yml_data
         @site_map = YAML.load(yml_data)
+        path = File.join 'www'
+        FileUtils.mkdir_p(path) unless File.exist?(path)
         @site_map.each do |key, value|
-          puts "--------------------"
           puts key 
           value.each do |key2, value2|
             puts key2["title"] 
             puts key2["link"]
             content_data = open(key2["link"]).read
             @contents = GitHub::Markdown.render_gfm(content_data)
-            myfile = File.new("../www/#{key2["slug"]}.html", "w+")
-            myfile.write(@contents)
+            File.open(File.join(path,"/#{key2["slug"]}.html"), "w+") do |myfile|
+              myfile.puts(@contents)
+            end
           end
-          puts "--------------------"
         end
     end
   end
