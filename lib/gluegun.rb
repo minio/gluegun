@@ -29,48 +29,61 @@ module Gluegun
                               <meta name=\"description\" content=\"\">
                               <meta name=\"author\" content=\"\">
 
-                              <title>Simple Sidebar - Start Bootstrap Template</title>
+                              <!-- Bootstrap CDN HTML -->
+                              <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
 
-                              <!-- Bootstrap Core CSS -->
-                              <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
+                              <!-- Jquery -->
+                              <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
 
-                              <!-- Custom CSS -->
-                              <link href=\"css/simple-sidebar.css\" rel=\"stylesheet\">
-
-                              <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-                              <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-                              <!--[if lt IE 9]>
-                                  <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>
-                                  <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>
-                              <![endif]-->
-                          </head>
+                          <script>
+                          $(function() {
+                               $(\".nav > li > a\").on(\"click\",function(e) {
+                                 e.preventDefault();
+                                 $(\"#content\").load(this.href);
+                               });
+                            });
+                          </script>
                           <body>
-                            <div>
                             <!-- Sidebar -->
-                            <div id=\"sidebar-wrapper\">
-                                <ul class=\"sidebar-nav\">"
-          yml_data = open(file_name).read
-          @site_map = YAML.load(yml_data)
-          @site_map.each do |key, value|
-              value.each do |key2, value2|
-                f << "<li>"
-                f << key
-                f << "<a href="
-                f << "#{key2["slug"]}.html"
-                f << ">"
-                f << key2["title"]
-                f << "</a>"
-                f << "</li>"
-              end
+                            <div class=\"container\">
+                            	<div class=\"col-sm-2\">
+                                <nav class=\"nav-sidebar\">
+                              		<ul class=\"nav tabs\">\n"
+        yml_data = open(file_name).read
+        @site_map = YAML.load(yml_data)
+        @site_map.each do |key, value|
+          f << key + "\n"
+          if key===@site_map.keys[0]
+            active_keyword="active"
+          else
+            active_keyword=""
           end
-          f << "</ul>"
-          f << "</div></div></body></html>"
+          value.each do |key2, value2|
+            f << "<li class=\"#{active_keyword}\">"
+            f << "<a href="
+            f << "#{key2["slug"]}.html" + " "
+            f << "data-toggle=\"tab\">"
+            f << key2["title"]
+            f << "</a></li>\n"
+          end
+        end
+        f << "</ul>\n</nav>\n</div>\n"
+        f << "<!-- Tab content -->" + "\n"
+        f << "<div class=\"tab-content\">\n"
+        @site_map.each do |key, value|
+          if key===@site_map.keys[0]
+            active_keyword="active"
+          else
+            active_keyword=""
+          end
+          value.each do |key2, value2|
+            f << "<div class=\"tab-pane #{active_keyword} text-style\" id=\"content\"></div>\n"
+          end
+        end
+        f << "</div>\n</body>\n</html>\n"
+      end
     end
-  end
 
-    # Generate page htmls
-    #
-    # Example:
     #   >> Gluegun:Gluegun.gluegun_generate_pages("https://raw.githubusercontent.com/minio/gluegun/master/sample_site_config.yml")
     #   => done
     #
@@ -84,9 +97,10 @@ module Gluegun
         path = File.join 'www'
         FileUtils.mkdir_p(path) unless File.exist?(path)
         @site_map.each do |key, value|
-          puts key 
+          puts key
+
           value.each do |key2, value2|
-            puts key2["title"] 
+            puts key2["title"]
             puts key2["link"]
             content_data = open(key2["link"]).read
             @contents = GitHub::Markdown.render_gfm(content_data)
