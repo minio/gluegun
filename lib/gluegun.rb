@@ -52,13 +52,15 @@ module Gluegun
         yml_data = open(file_name).read
         @site_map = YAML.load(yml_data)
         @site_map.each do |key, value|
+          first_entry = true
           f << key + "\n"
-          if key===@site_map.keys[0]
-            active_keyword="active"
-          else
-            active_keyword=""
-          end
           value.each do |key2, value2|
+            if key===@site_map.keys[0] && first_entry
+              active_keyword="active"
+              first_entry = false
+            else
+              active_keyword=""
+            end
             f << "<li class=\"#{active_keyword}\">"
             f << "<a href="
             f << "#{key2["slug"]}.html" + " "
@@ -71,13 +73,15 @@ module Gluegun
         f << "<!-- Tab content -->" + "\n"
         f << "<div class=\"tab-content\">\n"
         @site_map.each do |key, value|
-          if key===@site_map.keys[0]
-            active_keyword="active"
-          else
-            active_keyword=""
-          end
+          first_entry = true
           value.each do |key2, value2|
-            f << "<div class=\"tab-pane #{active_keyword} text-style\" id=\"content\"></div>\n"
+            if key===@site_map.keys[0] && first_entry
+              active_keyword=" active"
+              first_entry = false
+            else
+              active_keyword=""
+            end
+            f << "<div class=\"tab-pane#{active_keyword} text-style\" id=\"content\"></div>\n"
           end
         end
         f << "</div>\n</body>\n</html>\n"
