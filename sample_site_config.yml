@@ -2,7 +2,7 @@ Minio Server:
   - title: Minio Server Quickstart Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_server_quickstart_guide
-  - title: Minio Distributed Quickstart Guide 
+  - title: Minio Distributed Quickstart Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_distributed_quickstart_guide
 
@@ -10,7 +10,7 @@ Minio Client:
   - title: Minio Client Quickstart Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_client_quickstart_guide
-  - title: Minio Complete Client Quickstart Guide 
+  - title: Minio Complete Client Quickstart Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_complete_client_quickstart_guide
 
@@ -18,7 +18,7 @@ Minio SDKs:
   - title: Minio SDK Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_server_quickstart_guide
-  - title: Minio API Quickstart Guide 
+  - title: Minio API Quickstart Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_api_quickstart_guide
 
@@ -26,6 +26,6 @@ Minio Cookbook:
   - title: Minio Cookbook Guide
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_cookbook_guide
-  - title: Minio Recipes 
+  - title: Minio Recipes
     link: https://raw.githubusercontent.com/minio/minio/master/README.md
     slug: minio_recipes
