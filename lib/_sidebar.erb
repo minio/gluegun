@@ -1,0 +1,26 @@
+    <!-- Sidebar -->
+    <div class="container">
+      <div class="col-sm-2">
+        <nav class="nav-sidebar">
+          <ul class="nav tabs">
+            <%- @site_map.each do |key, value| -%>
+              <%- first_entry = true -%>
+              <%= key %>
+              <%- value.each do |key2, value2| -%>
+                <%- if key===@site_map.keys[0] && first_entry -%>
+                  <%- active_keyword="active" -%>
+                  <%- first_entry = false -%>
+                <%- else -%>
+                  <%- active_keyword="" -%>
+                <%- end -%>
+                <li class="<%=active_keyword%>"><a href="<%=key2["slug"]%>.html" data-toggle="tab"><%=key2["title"]%></a></li>
+              <%- end -%>
+            <%- end -%>
+          </ul>
+        </nav>
+      </div>
+      <!-- Tab content -->
+      <div class="tab-content">
+        <div class="tab-pane active text-style" id="content"></div>
+      </div>
+    </div>
