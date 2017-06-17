@@ -9,6 +9,18 @@ module Gluegun
 
   class Gluegun
 
+    def self.raw(link)
+      if link =~ /\/github.com\//
+        # Link is not raw, convert it
+        replacements = [ ["github", "raw.githubusercontent"],
+                         ["/blob", ""] ]
+        replacements.each do |replacement|
+          link.gsub!(replacement[0], replacement[1])
+        end
+      end
+      return link
+    end
+
     def self.gluegun_generate_index(site_config_file)
       dest_path = 'www'
       html_file = 'index.html'
@@ -32,8 +44,8 @@ module Gluegun
       FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
       YAML.load(open(site_config_file).read).each do |key, value|
         value.each do |key2, value2|
-          File.open(File.join(dest_path,"/#{key2["slug"]}.html"), "w+") do |f|
-            f.puts(GitHub::Markdown.render_gfm(open(key2["link"]).read))
+          File.open(File.join(dest_path,"/#{key2['slug']}.html"), "w+") do |f|
+            f.puts(GitHub::Markdown.render_gfm(open(raw(key2['link'])).read))
           end
         end
       end

@@ -20,12 +20,13 @@ opt_parser.parse!
 
 case ARGV[0]
 when "generate"
-  #puts "call start on options #{options.inspect}"
   if ARGV[1].empty?
     puts opt_parser
   else
-    Gluegun::Gluegun.gluegun_generate_pages ARGV[1]
-    Gluegun::Gluegun.gluegun_generate_index ARGV[1]
+    link = ARGV[1].dup
+    site_config_file = Gluegun::Gluegun.raw(link)
+    Gluegun::Gluegun.gluegun_generate_pages site_config_file
+    Gluegun::Gluegun.gluegun_generate_index site_config_file
   end
 else
   puts opt_parser
