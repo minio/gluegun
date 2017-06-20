@@ -3,7 +3,7 @@
       <div class="col-sm-2">
         <nav class="nav-sidebar">
           <ul class="nav tabs">
-            <%- @site_map.each do |key, value| -%>
+            <%- @site_map['docs'].each do |key, value| -%>
               <%- first_entry = true -%>
               <%= key %>
               <%- value.each do |key2, value2| -%>

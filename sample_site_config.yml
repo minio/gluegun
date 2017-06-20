@@ -1,31 +1,34 @@
-Minio Server:
-  - title: Minio Server Quickstart Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_server_quickstart_guide
-  - title: Minio Distributed Quickstart Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_distributed_quickstart_guide
+destination: "docs"
 
-Minio Client:
-  - title: Minio Client Quickstart Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_client_quickstart_guide
-  - title: Minio Complete Client Quickstart Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_complete_client_quickstart_guide
+docs:
+  Minio Server:
+    - title: Minio Quickstart Guide
+      link: https://github.com/minio/minio/blob/master/README.md
+      slug: minio_quickstart_guide
+    - title: Distributed Minio Quickstart Guide
+      link: https://raw.githubusercontent.com/minio/minio/master/docs/distributed/README.md
+      slug: distributed_minio_quickstart_guide
 
-Minio SDKs:
-  - title: Minio SDK Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_server_quickstart_guide
-  - title: Minio API Quickstart Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_api_quickstart_guide
+  Minio Client:
+    - title: Minio Docker Quickstart Guide
+      link: https://github.com/minio/minio/blob/master/docs/docker/README.md
+      slug: minio_docker_quickstart_guide
+    - title: Minio Gateway Guide
+      link: https://github.com/minio/minio/blob/master/docs/gateway/README.md
+      slug: minio_gateway_guide
 
-Minio Cookbook:
-  - title: Minio Cookbook Guide
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_cookbook_guide
-  - title: Minio Recipes
-    link: https://raw.githubusercontent.com/minio/minio/master/README.md
-    slug: minio_recipes
+  Minio SDKs:
+    - title: Multi-tenant Minio Deployment Guide
+      link: https://github.com/minio/minio/blob/master/docs/multi-tenancy/README.md
+      slug: multi-tenant_minio_deployment_guide
+    - title: Shared Backend Minio Quickstart Guide
+      link: https://github.com/minio/minio/blob/master/docs/shared-backend/README.md
+      slug: shared_backend_minio_quickstart_guide
+
+  Minio Cookbook:
+    - title: Minio Limitations
+      link: https://github.com/minio/minio/blob/master/docs/minio-limitations.md
+      slug: minio_limitations
+    - title: Minio FreeBSD Quickstart Guide
+      link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
+      slug: minio_freebsd_quickstart_guide

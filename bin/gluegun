@@ -20,13 +20,14 @@ opt_parser.parse!
 
 case ARGV[0]
 when "generate"
-  #puts "call start on options #{options.inspect}"
-  if ARGV[1].empty?
-    puts opt_parser
+  if ARGV[1].nil? || ARGV[1].empty?
+    # No config file is provided. Use the default yml file
+    site_config = './sample_site_config.yml'
   else
-    Gluegun::Gluegun.gluegun_generate_pages ARGV[1]
-    Gluegun::Gluegun.gluegun_generate_index ARGV[1]
+    site_config = ARGV[1].dup
   end
+  Gluegun::Gluegun.gluegun_generate_pages site_config
+  Gluegun::Gluegun.gluegun_generate_index site_config
 else
   puts opt_parser
 end
