@@ -17,6 +17,7 @@ module Gluegun
       @site_map = YAML.load(open(config_file).read)
       dest_path = @site_map['destination']
       FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
+      #FileUtils.cp_r(Dir.glob('css/*'), dest_path, :verbose =>true)
       File.open(File.join(dest_path, html_file), "w+") do |f|
         partial_erb_arr.each do |partial_erb|
           # Set nil to "-" to activate "<%-" and "-%>" characters
@@ -41,6 +42,14 @@ module Gluegun
           end
         end
       end
+      puts "copying css & js..."
+      copy_with_path('lib/css', dest_path)
+      copy_with_path('lib/js', dest_path)
+      puts "done"
+    end
+
+    def self.reveal(link)
+      return GitHub::Markdown.render_gfm(open(link).read)
     end
 
     private
@@ -63,6 +72,11 @@ module Gluegun
         end
       end
       return link
+    end
+
+    def self.copy_with_path(src, dst)
+      FileUtils.mkdir_p(File.dirname(dst))
+      FileUtils.cp_r(src, dst)
     end
 
   end
