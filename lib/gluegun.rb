@@ -41,6 +41,14 @@ module Gluegun
           end
         end
       end
+      puts "copying css & js..."
+      copy_with_path('lib/css', dest_path)
+      copy_with_path('lib/js', dest_path)
+      puts "done"
+    end
+
+    def self.reveal(link)
+      return GitHub::Markdown.render_gfm(open(link).read)
     end
 
     private
@@ -63,6 +71,11 @@ module Gluegun
         end
       end
       return link
+    end
+
+    def self.copy_with_path(src, dst)
+      FileUtils.mkdir_p(File.dirname(dst))
+      FileUtils.cp_r(src, dst)
     end
 
   end

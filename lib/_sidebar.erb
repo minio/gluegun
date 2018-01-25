@@ -13,7 +13,7 @@
                 <%- else -%>
                   <%- active_keyword="" -%>
                 <%- end -%>
-                <li class="<%=active_keyword%>"><a href="<%=key2["slug"]%>.html" data-toggle="tab"><%=key2["title"]%></a></li>
+                <li class="<%=active_keyword%>"><a href="#<%=key2["slug"]%>" data-toggle="tab"><%=key2["title"]%></a></li>
               <%- end -%>
             <%- end -%>
           </ul>
@@ -21,6 +21,20 @@
       </div>
       <!-- Tab content -->
       <div class="tab-content">
-        <div class="tab-pane active text-style" id="content"></div>
+      <%- @site_map['docs'].each do |key, value| -%>
+        <%- first_entry = true -%>
+        <%- value.each do |key2| -%>
+          <%- if key===@site_map.keys[0] && first_entry -%>
+            <%- active_keyword="active tab-pane text-style" -%>
+            <%- first_entry = false -%>
+          <%- else -%>
+            <%- active_keyword="tab-pane text-style" -%>
+          <%- end -%>
+          <div role="tabpanel" class="<%=active_keyword%>" id="<%=key2["slug"]%>">
+            <%- linked_doc = key2["link"] -%>
+            <%=  reveal(raw(linked_doc)) -%>
+          </div>
+          <%- end -%>
+        <%- end -%>
       </div>
     </div>
