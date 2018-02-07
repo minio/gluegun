@@ -15,6 +15,7 @@
       $(function() {
         $(".nav > li > a").on("click",function(e) {
           e.preventDefault();
+          document.title = this.textContent;
           $("#minio_quickstart_guide").load(this.href);
         });
       });
