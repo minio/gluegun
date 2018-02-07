@@ -1,6 +1,6 @@
     <!-- Sidebar -->
     <div class="container">
-      <div class="col-sm-2">
+      <div class="col-sm-2 sidebar">
         <nav class="nav-sidebar">
           <ul class="nav tabs">
             <%- @site_map['docs'].each do |key, value| -%>
@@ -20,7 +20,7 @@
         </nav>
       </div>
       <!-- Tab content -->
-      <div class="tab-content">
+      <div class="tab-content content">
       <%- @site_map['docs'].each do |key, value| -%>
         <%- first_entry = true -%>
         <%- value.each do |key2| -%>

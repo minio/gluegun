@@ -1,0 +1,14 @@
+.content {
+    width: calc(83.333333% - 5px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.sidebar {
+    display: inline-block;
+}
+
+img {
+    max-width:100%;
+    max-height:100%;
+}
