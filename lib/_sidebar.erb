@@ -7,13 +7,13 @@
               <%- first_entry = true -%>
               <%= key %>
               <%- value.each do |key2, value2| -%>
-                <%- if key===@site_map.keys[0] && first_entry -%>
+                <%- if key===@site_map['docs'].keys[0] && first_entry -%>
                   <%- active_keyword="active" -%>
                   <%- first_entry = false -%>
                 <%- else -%>
                   <%- active_keyword="" -%>
                 <%- end -%>
-                <li class="<%=active_keyword%>"><a href="#<%=key2["slug"]%>" data-toggle="tab"><%=key2["title"]%></a></li>
+                <li><a class="<%=active_keyword%>" href="#<%=key2["slug"]%>" data-toggle="tab"><%=key2["title"]%></a></li>
               <%- end -%>
             <%- end -%>
           </ul>
@@ -24,7 +24,7 @@
       <%- @site_map['docs'].each do |key, value| -%>
         <%- first_entry = true -%>
         <%- value.each do |key2| -%>
-          <%- if key===@site_map.keys[0] && first_entry -%>
+          <%- if key===@site_map['docs'].keys[0] && first_entry -%>
             <%- active_keyword="active tab-pane text-style" -%>
             <%- first_entry = false -%>
           <%- else -%>
