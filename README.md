@@ -41,7 +41,7 @@ Or in your script:
 Build the gem using the command 
 
 ```
-gem build gluegun.gempspec
+gem build gluegun.gemspec
 ```
 
 Install the gem
