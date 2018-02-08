@@ -22,7 +22,7 @@ case ARGV[0]
 when "generate"
   if ARGV[1].nil? || ARGV[1].empty?
     # No config file is provided. Use the default yml file
-    site_config = './sample_site_config.yml'
+    site_config = './site.yml'
   else
     site_config = ARGV[1].dup
   end

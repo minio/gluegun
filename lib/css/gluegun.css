@@ -1,3 +1,6 @@
+body {
+    font-family: Algerian;
+}
 .content {
     width: calc(83.333333% - 5px);
     display: inline-block;

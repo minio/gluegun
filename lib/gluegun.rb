@@ -15,7 +15,8 @@ module Gluegun
       partial_erb_arr =['lib/index.erb', 'lib/_header.erb',
                         'lib/_sidebar.erb', 'lib/_footer.erb']
       @site_map = YAML.load(open(config_file).read)
-      dest_path = @site_map['destination']
+      dest_path = @site_map['Output']
+      puts dest_path
       FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
       File.open(File.join(dest_path, html_file), "w+") do |f|
         partial_erb_arr.each do |partial_erb|
@@ -31,13 +32,16 @@ module Gluegun
     def self.gluegun_generate_pages(site_config_file)
       config_file = get_config_file(site_config_file)
       @site_map = YAML.load(open(config_file).read)
-      dest_path = @site_map['destination']
+      dest_path = @site_map['Output']
       FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
-      @site_map['docs'].each do |key, value|
-        value.each do |key2, value2|
-          link = raw(key2['link'])
-          File.open(File.join(dest_path,"/#{key2['slug']}.html"), "w+") do |f|
-            f.puts(GitHub::Markdown.render_gfm(open(link).read))
+
+      @site_map['Documents'].each do |categories|
+         categories.each do |key, value|
+          value.each do |key2|
+            link = raw(key2['Link'])
+            File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
+              f.puts(GitHub::Markdown.render_gfm(open(link).read))
+            end
           end
         end
       end
@@ -55,7 +59,7 @@ module Gluegun
 
     def self.get_config_file(site_config_file)
       if site_config_file.empty?
-        config_file = './sample_site_config.yml'
+        config_file = './site.yml'
       else
         config_file = raw(site_config_file)
       end
