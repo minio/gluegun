@@ -35,5 +35,21 @@ Or in your script:
           
 ## Example
 
-        gluegun generate https://github.com/gluegun/site_sample_config.yml
+        gluegun generate https://github.com/gluegun/site.yml
         
+## Building Gluegun Gem
+Build the gem using the command 
+
+```
+gem build gluegun.gemspec
+```
+
+Install the gem
+```
+gem install gluegun
+```
+
+Run the gluegun CLI 
+```
+bin/gluegun generate ./site.yml
+````
