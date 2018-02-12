@@ -39,6 +39,9 @@ module Gluegun
          categories.each do |key, value|
           value.each do |key2|
             link = raw(key2['Link'])
+            if !key2["Slug"]
+              key2["Slug"] = get_slug(key2)
+            end
             File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
               f.puts(GitHub::Markdown.render_gfm(open(link).read))
             end
@@ -63,6 +66,10 @@ module Gluegun
       else
         config_file = raw(site_config_file)
       end
+    end
+
+    def self.get_slug(key)
+      return key.keys[0].downcase.tr(" ", "-")
     end
 
     def self.raw(link)
