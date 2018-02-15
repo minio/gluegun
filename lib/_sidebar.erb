@@ -14,7 +14,14 @@
                       <%- else -%>
                         <%- active_keyword="" -%>
                       <%- end -%>
-                      <li><a class="<%=active_keyword%>" href="#<%=key2["Slug"]%>" data-toggle="tab"><%=key2.keys[0]%></a></li>
+                      <li>
+                        <%- if !key2["Slug"] -%>
+                          <%- key2["Slug"] = get_slug(key2) -%>
+                        <%- end -%>
+                        <a class="<%=active_keyword%>" href="#<%=key2["Slug"]%>" data-toggle="tab">
+                          <%=key2.keys[0]%>
+                        </a>
+                      </li>
                 <%- end -%>
               <%- end -%>
             <%- end -%>
