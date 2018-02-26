@@ -1,57 +1,45 @@
-    <!-- Sidebar -->
-    <div class="container">
-      <div class="col-sm-2 sidebar">
-        <nav class="nav-sidebar">
-          <ul class="nav tabs">
-          <% if !@site_map['Documents'].nil? %>
-            <%- @site_map['Documents'].each do |categories| -%>
-             <%- categories.each do |key, value| -%>
-              <%= key -%>
-              <%- first_entry = true -%>
-                <%- value.each do |key2| -%>
-                      <%- if key===@site_map['Documents'][0].keys[0] && first_entry -%>
-                        <%- active_keyword="active" -%>
-                        <%- first_entry = false -%>
-                      <%- else -%>
-                        <%- active_keyword="" -%>
-                      <%- end -%>
-                      <%- if reveal(raw(key2["Link"])) -%>
-                        <li>
-                          <%- if !key2["Slug"] -%>
-                            <%- key2["Slug"] = get_slug(key2) -%>
-                          <%- end -%>
-                          <a class="<%=active_keyword%>" href="#<%=key2["Slug"]%>" data-toggle="tab">
-                            <%= key2.keys[0] -%>
-                          </a>
+    <aside class="sidebar">
+        <a href="" class="sidebar__close"></a>
+
+        <a href="/" class="logo">
+            <img src="https://minio.io/img/logo/wordmark_white.svg" alt="">
+        </a>
+
+        <ul class="doc-link">
+            <% if !@site_map['Documents'].nil? %>
+
+                <%- @site_map['Documents'].each do |categories| -%>
+                    <%- categories.each do |key, value| -%>
+                        <li class="doc-link__category">
+                            <a href="" class="doc-link__header"><%= key -%></a>
+
+                            <%- first_entry = true -%>
+
+                            <ul class="doc-link__items">
+                                <%- value.each do |key2| -%>
+                                    <%- if key===@site_map.keys[0] && first_entry -%>
+                                        <%- active_keyword="active" -%>
+                                        <%- first_entry = false -%>
+                                    <%- else -%>
+                                        <%- active_keyword="" -%>
+                                    <%- end -%>
+                                     <%- if reveal(raw(key2["Link"])) -%>
+                                        <li>
+                                        <%- if !key2["Slug"] -%>
+                                            <%- key2["Slug"] = get_slug(key2) -%>
+                                        <%- end -%>
+                                        <a class="<%=active_keyword%>" href="#<%=key2["Slug"]%>">
+                                            <%= key2.keys[0] -%>
+                                        </a>
+                                        </li>
+                                    <%- end -%>
+                                <%- end -%>
+                            </ul>
                         </li>
-                      <%- end -%>
+                    <%- end -%>
                 <%- end -%>
-              <%- end -%>
-            <%- end -%>
-          <% end %>
-          </ul>
-        </nav>
-      </div>
-      <!-- Tab content -->
-      <div class="tab-content content">
-      <% if !@site_map['Documents'].nil? %>
-        <%- @site_map['Documents'].each do |categories| -%>
-          <%- categories.each do |key, value| -%>
-            <%- first_entry = true -%>
-              <%- value.each do |key2| -%>
-                <%- if key===@site_map['Documents'][0].keys[0] && first_entry -%>
-                  <%- active_keyword="active tab-pane text-style" -%>
-                  <%- first_entry = false -%>
-                <%- else -%>
-                  <%- active_keyword="tab-pane text-style" -%>
-                <%- end -%>
-                <div role="tabpanel" class="<%=active_keyword%>" id="<%=key2["Slug"]%>">
-                  <%- linked_doc = key2["Link"] -%>
-                  <%=  reveal(raw(linked_doc)) -%>
-                </div>
-              <%- end -%>
-          <%- end -%>
-        <%- end -%>
-      <% end %>
-      </div>
-    </div>
+             <% end %>
+        </ul>
+    </aside>
+
+    <section class="content">

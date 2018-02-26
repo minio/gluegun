@@ -1,0 +1,15 @@
+.content {
+    min-height: 100vh;
+
+    @media(min-width: $screen-lg-min) {
+        padding: 25px 40px 40px ($sidebar-width + 40px);
+    }
+
+    @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+        padding: 40px;
+    }
+
+    @media(max-width: $screen-xs-max) {
+        padding: 15px;
+    }
+}

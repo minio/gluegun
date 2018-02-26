@@ -13,12 +13,15 @@ Documents:
   - Minio Server: 
       - Minio Server Quick Start Guide: 
         Link: https://github.com/minio/minio/blob/master/README.md
+        Slug: minio-server-quick-start-guide
 
       - Minio Docker Quick Start Guide: 
         Link: https://github.com/minio/minio/blob/master/docs/docker/README.md
+        Slug: minio-docker-quick-start-guide
 
       - Minio Gateway Guide:
         Link: https://github.com/minio/minio/blob/master/docs/gateway/README.md
+        Slug: minio-gateway-guide
 
   - Minio Client: 
       - Minio Client Quick Start Guide: 
@@ -26,13 +29,16 @@ Documents:
 
       - Minio Client Complete Guide: 
         Link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
-  
+        Slug: minio-client-complete-guide
+
   - Minio SDKs:
       - Multi-tenant Minio Deployment Guide:
         Link: https://github.com/minio/minio/blob/master/docs/multi-tenancy/README.md
+        Slug: multi-tenant-minio-deployment-guide
 
       - Shared Backend Minio Quickstart Guide:
         Link: https://github.com/minio/minio/blob/master/docs/shared-backend/README.md
+        Slug: shared-backend-minio-quickstart-guide
 
   - Minio Cookbook:
       - Minio Limitations:
