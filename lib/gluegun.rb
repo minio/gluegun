@@ -38,12 +38,18 @@ module Gluegun
       @site_map['Documents'].each do |categories|
          categories.each do |key, value|
           value.each do |key2|
+            orig_link = key2["Link"].dup
             link = raw(key2['Link'])
             if !key2["Slug"]
               key2["Slug"] = get_slug(key2)
             end
-            File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
-              f.puts(GitHub::Markdown.render_gfm(open(link).read))
+            begin
+              File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
+                f.puts(GitHub::Markdown.render_gfm(open(link).read))
+              end
+            rescue OpenURI::HTTPError
+              puts "WARNING:  " + key + " -> " + key2.keys[0] + ": Page not found, the " + 
+                   "corresponding link will not be displayed on the sidebar. (" + orig_link + ")"
             end
           end
         end
@@ -55,7 +61,11 @@ module Gluegun
     end
 
     def self.reveal(link)
-      return GitHub::Markdown.render_gfm(open(link).read)
+      begin
+        response = GitHub::Markdown.render_gfm(open(link).read)
+        return response
+      rescue OpenURI::HTTPError
+      end
     end
 
     private
