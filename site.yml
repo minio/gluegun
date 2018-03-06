@@ -12,6 +12,9 @@ Documents:
         Link: https://github.com/minio/minio/blob/master/docs/gateway/README.md
 
   - Minio Client: 
+      - Minio Client Quick Start Guide: 
+        Link: https://github.com/minio/minio/blob/master/docs/minio-limitations.md
+
       - Minio Client Complete Guide: 
         Link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
   
@@ -23,6 +26,8 @@ Documents:
         Link: https://github.com/minio/minio/blob/master/docs/shared-backend/README.md
 
   - Minio Cookbook:
+      - Minio Limitations:
+        Link: https://github.com/minio/minio/blob/master/docs/minio-limitations.md
+
       - Minio FreeBSD Quickstart Guide:
         Link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
-        Slug: minio-freebsd-quickstart-guide
