@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Gluegun::VERSION
   spec.authors       = ["minio"]
   spec.email         = ["sysadmin@minio.io"]
-
+  spec.license       = "Apache-2.0"
   spec.summary       = %q{Gluegun is glues markdown docs from github and creates a beautiful docs site.}
   spec.description   = %q{Gluegun is glues markdown docs from github and pulls together a beautiful docs site. }
   spec.homepage      = "https://github.com/minio/gluegun"
@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_runtime_dependency 'github-markdown', "~> 0"
 end
