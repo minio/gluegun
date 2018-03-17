@@ -1,9 +1,21 @@
 <div class="container" style="margin-top:30px;">
-  <div class="input-group input-group-lg">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-lg"></span>
+  <div class="input-group">
+    <div class="input-group input-group-md float-left" >
+      <input type="text" class="form-control input-sm" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search documents...">
     </div>
-    <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Search documents...">
+    <% if !@site_map['Language'].nil? %>
+    <div class="dropdown show float-right">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Translations
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%- @site_map['Language'].each do |categories| -%>
+            <%- categories.each do |key, value| -%>
+                <a class="dropdown-item" href="<%=value -%>"><%= key -%></a>
+            <%- end -%>
+          <%- end -%>
+      </div>
+    </div>
+    <%- end -%>
   </div>
 </div>
-    

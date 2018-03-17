@@ -16,16 +16,19 @@ module Gluegun
                         'lib/_sidebar.erb', 'lib/_footer.erb']
       @site_map = YAML.load(open(config_file).read)
       dest_path = @site_map['Output']
-      puts dest_path
-      FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
-      File.open(File.join(dest_path, html_file), "w+") do |f|
-        partial_erb_arr.each do |partial_erb|
-          # Set nil to "-" to activate "<%-" and "-%>" characters
-          # for non-printing lines in erb file.
-          # This will prevent extraneous newlines and indentations
-          # in the generated html file.
-          f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
+      if !dest_path.nil?
+        FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
+          File.open(File.join(dest_path, html_file), "w+") do |f|
+            partial_erb_arr.each do |partial_erb|
+            # Set nil to "-" to activate "<%-" and "-%>" characters
+            # for non-printing lines in erb file.
+            # This will prevent extraneous newlines and indentations
+            # in the generated html file.
+            f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
+          end
         end
+      else
+        puts "Missing destination directory in site.yml file."
       end
     end
 
@@ -33,31 +36,43 @@ module Gluegun
       config_file = get_config_file(site_config_file)
       @site_map = YAML.load(open(config_file).read)
       dest_path = @site_map['Output']
-      FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
-
-      @site_map['Documents'].each do |categories|
-         categories.each do |key, value|
-          value.each do |key2|
-            orig_link = key2["Link"].dup
-            link = raw(key2['Link'])
-            if !key2["Slug"]
-              key2["Slug"] = get_slug(key2)
-            end
-            begin
-              File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
-                f.puts(GitHub::Markdown.render_gfm(open(link).read))
+      if ! dest_path.nil?
+        FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
+        if !@site_map['Documents'].nil?
+          @site_map['Documents'].each do |categories|
+            categories.each do |key, value|
+              value.each do |key2|
+                orig_link = key2["Link"].dup
+                link = raw(key2['Link'])
+                if !key2["Slug"]
+                  key2["Slug"] = get_slug(key2)
+                end
+                begin
+                  File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
+                    f.puts(GitHub::Markdown.render_gfm(open(link).read))
+                  end
+                rescue OpenURI::HTTPError
+                  # Calling an empty puts to create a new line.
+                  puts
+                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not fetch content from this link. " + 
+                      "Please check this link (" + orig_link + ") in site.yml file. "
+                end
               end
-            rescue OpenURI::HTTPError
-              puts "WARNING:  " + key + " -> " + key2.keys[0] + ": Page not found, the " + 
-                   "corresponding link will not be displayed on the sidebar. (" + orig_link + ")"
             end
           end
+          # Calling an empty puts to create a new line.
+          puts
+          puts "Generating html file..."
+          puts "Copying css & js..."
+          copy_with_path('lib/css', dest_path)
+          copy_with_path('lib/js', dest_path)
+          puts "Done"
+        else
+          puts "Missing document links in the site.yml file."
         end
+      else
+        puts "Missing destination directory in site.yml file."
       end
-      puts "copying css & js..."
-      copy_with_path('lib/css', dest_path)
-      copy_with_path('lib/js', dest_path)
-      puts "done"
     end
 
     def self.reveal(link)
@@ -75,6 +90,7 @@ module Gluegun
         config_file = './site.yml'
       else
         config_file = raw(site_config_file)
+        # TO DO: handle cases where the config file cannot be accessed.
       end
     end
 
