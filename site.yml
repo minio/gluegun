@@ -1,5 +1,7 @@
 Site: "Minio Docs"
 Output: "docs"
+Tokens:
+  Google Analytics: "UA-XXXXX-Y"
 Documents:  
   - Minio Server: 
       - Minio Server Quick Start Guide: 
