@@ -1,5 +1,8 @@
 Site: "Minio Docs"
 Output: "docs"
+Language:
+  - Chinese: https://docs.minio.io/cn
+  - Japanese: https://docs.minio.io/jp
 Documents:  
   - Minio Server: 
       - Minio Server Quick Start Guide: 
