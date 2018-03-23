@@ -1,15 +1,16 @@
 Site: "Minio Docs"
 Output: "docs"
+Logo: "https://minio.io/img/logo/wordmark_white.svg"
 Language:
   - 中文: https://docs.minio.io/cn
   - 日本語: https://docs.minio.io/jp
-Documents:  
-  - Minio Server: 
-      - Minio Server Quick Start Guide: 
+Documents:
+  - Minio Server:
+      - Minio Server Quick Start Guide:
         Link: https://github.com/minio/minio/blob/master/README.md
         Slug: minio-server-quick-start-guide
 
-      - Minio Docker Quick Start Guide: 
+      - Minio Docker Quick Start Guide:
         Link: https://github.com/minio/minio/blob/master/docs/docker/README.md
         Slug: minio-docker-quick-start-guide
 
@@ -17,11 +18,11 @@ Documents:
         Link: https://github.com/minio/minio/blob/master/docs/gateway/README.md
         Slug: minio-gateway-guide
 
-  - Minio Client: 
-      - Minio Client Quick Start Guide: 
+  - Minio Client:
+      - Minio Client Quick Start Guide:
         Link: https://github.com/minio/minio/blob/master/docs/minio-limitations.md
 
-      - Minio Client Complete Guide: 
+      - Minio Client Complete Guide:
         Link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
         Slug: minio-client-complete-guide
 
