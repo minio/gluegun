@@ -15,3 +15,12 @@ img {
     max-width:100%;
     max-height:100%;
 }
+
+.algolia-autocomplete {
+    width: calc(100% - 2.75rem);
+    left: 0;
+}
+
+.ds-dropdown-menu::before {
+    display: none !important;
+}
