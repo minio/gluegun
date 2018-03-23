@@ -1,19 +1,21 @@
         <section class="doc-preview">
-                <%- @site_map['Documents'].each do |categories| -%>
-                        <%- categories.each do |key, value| -%>
-                                <%- first_entry = true -%>
-                                <%- value.each do |key2| -%>
-                                        <%- if key===@site_map.keys[0] && first_entry -%>
-                                                <%- active_keyword="active" -%>
-                                                <%- first_entry = false -%>
-                                        <%- else -%>
-                                                <%- active_keyword="" -%>
-                                        <%- end -%>
+                 <% if !@site_map['Documents'].nil? %>
+                        <%- @site_map['Documents'].each do |categories| -%>
+                                <%- categories.each do |key, value| -%>
+                                        <%- first_entry = true -%>
+                                        <%- value.each do |key2| -%>
+                                                <%- if key===@site_map.keys[0] && first_entry -%>
+                                                        <%- active_keyword="active" -%>
+                                                        <%- first_entry = false -%>
+                                                <%- else -%>
+                                                        <%- active_keyword="" -%>
+                                                <%- end -%>
 
-                                        <div class="doc-preview__item <%=active_keyword%>" id="<%=key2["Slug"]%>">
-                                                <%- linked_doc = key2["Link"] -%>
-                                                <%=  reveal(raw(linked_doc)) -%>
-                                        </div>
+                                                <div class="doc-preview__item <%=active_keyword%>" id="<%=key2["Slug"]%>">
+                                                        <%- linked_doc = key2["Link"] -%>
+                                                        <%=  reveal(raw(linked_doc)) -%>
+                                                </div>
+                                        <%- end -%>
                                 <%- end -%>
                         <%- end -%>
                 <%- end -%>

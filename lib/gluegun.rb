@@ -46,9 +46,20 @@ module Gluegun
         if !@site_map['Documents'].nil?
           @site_map['Documents'].each do |categories|
             categories.each do |key, value|
+              if !value
+                puts "ERROR:  " + key + ": gluegun cannot not generate docs from this link. " +
+                      "Please check links under (" +  key + ") in site.yml file. "
+                exit (false)
+              end
               value.each do |key2|
-                orig_link = key2["Link"].dup
-                link = raw(key2['Link'])
+                if ! key2["Link"]
+                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not generate docs from this link. " +
+                      "Please check links under (" +  key2.keys[0] + ") in site.yml file. "
+                  exit (false)
+                else
+                  orig_link = key2["Link"].dup
+                  link = raw(key2['Link'])
+                end
                 if !key2["Slug"]
                   key2["Slug"] = get_slug(key2)
                 end

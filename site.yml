@@ -1,21 +1,25 @@
 Site: "Minio Docs"
 Output: "docs"
+Logo: "https://minio.io/img/logo/wordmark_white.svg"
+
 Language:
   - Chinese: https://docs.minio.io/cn
   - Japanese: https://docs.minio.io/jp
+
 Plugins:
   # Algolia DocSearch
   - Algolia: 
-      apiKey: "<ALGOLIA_API_KEY>"
-      index: "<ALGOLIA_INDEX_NAME>"
+      apiKey: "0ba0d26da4d1483f96c03fe508304a64"
+      index: "minio"
   - Google Analytics: "UA-XXXXX-Y"
+
 Documents:
-  - Minio Server: 
-      - Minio Server Quick Start Guide: 
+  - Minio Server:
+      - Minio Server Quick Start Guide:
         Link: https://github.com/minio/minio/blob/master/README.md
         Slug: minio-server-quick-start-guide
 
-      - Minio Docker Quick Start Guide: 
+      - Minio Docker Quick Start Guide:
         Link: https://github.com/minio/minio/blob/master/docs/docker/README.md
         Slug: minio-docker-quick-start-guide
 
@@ -23,22 +27,20 @@ Documents:
         Link: https://github.com/minio/minio/blob/master/docs/gateway/README.md
         Slug: minio-gateway-guide
 
-  - Minio Client: 
-      - Minio Client Quick Start Guide: 
-        Link: https://github.com/minio/minio/blob/master/docs/minio-limitations.md
+  - Minio Client:
+      - Minio Client Quick Start Guide:
+        Link: https://raw.githubusercontent.com/minio/mc/master/README.md
 
-      - Minio Client Complete Guide: 
-        Link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
+      - Minio Client Complete Guide:
+        Link: https://raw.githubusercontent.com/minio/mc/master/docs/minio-client-complete-guide.md
         Slug: minio-client-complete-guide
 
   - Minio SDKs:
-      - Multi-tenant Minio Deployment Guide:
-        Link: https://github.com/minio/minio/blob/master/docs/multi-tenancy/README.md
-        Slug: multi-tenant-minio-deployment-guide
+      - JavaScript Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio-js/master/README.md
 
-      - Shared Backend Minio Quickstart Guide:
-        Link: https://github.com/minio/minio/blob/master/docs/shared-backend/README.md
-        Slug: shared-backend-minio-quickstart-guide
+      - JavaScript Client API Referece:
+        Link: https://raw.githubusercontent.com/minio/minio-js/master/docs/API.md
 
   - Minio Cookbook:
       - Minio Limitations:
