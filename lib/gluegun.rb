@@ -68,9 +68,11 @@ module Gluegun
           # Calling an empty puts to create a new line.
           puts
           puts "Generating html file..."
-          puts "Copying css & js..."
+          puts "Copying assets..."
           copy_with_path('lib/css', dest_path)
+          copy_with_path('lib/img', dest_path)
           copy_with_path('lib/js', dest_path)
+          copy_with_path('lib/vendors', dest_path)
           puts "Done"
         else
           puts "Missing document links in the site.yml file."
