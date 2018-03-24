@@ -108,6 +108,10 @@
   list-style: none;
   display: none;
 
+  .doc-link__active {
+    color: $doclink-active-color;
+  }
+
   & > li {
     & > a {
       display: block;
