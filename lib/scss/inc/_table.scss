@@ -1,0 +1,30 @@
+table {
+  background-color: $table-bg;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+}
+
+table, th, td {
+  border: 1px solid $table-border-color;
+  font-size: $font-size-base - 1;
+  vertical-align: top;
+}
+
+th {
+  text-align: left;
+  font-weight: normal;
+  background-color: $th-bg;
+  color: $th-color;
+}
+
+th, td {
+  padding: 15px 20px;
+}
+
+.table-responsive {
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 30px;
+}

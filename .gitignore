@@ -9,3 +9,7 @@
 /tmp/
 /docs/
 /gluegun-*.gem
+/package.json
+/gulpfile.js
+/package-lock.json
+.ruby-version

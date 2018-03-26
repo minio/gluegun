@@ -12,8 +12,13 @@ module Gluegun
     def self.gluegun_generate_index(site_config_file)
       config_file = get_config_file(site_config_file)
       html_file = 'index.html'
-      partial_erb_arr =['lib/index.erb', 'lib/_header.erb',
-                        'lib/_sidebar.erb', 'lib/_footer.erb']
+      partial_erb_arr =[
+              'lib/index.erb',
+              'lib/_sidebar.erb',
+              'lib/_header.erb',
+              'lib/_content.erb',
+              'lib/_footer.erb'
+              ]
       @site_map = YAML.load(open(config_file).read)
       dest_path = @site_map['Output']
       if !dest_path.nil?
@@ -41,9 +46,20 @@ module Gluegun
         if !@site_map['Documents'].nil?
           @site_map['Documents'].each do |categories|
             categories.each do |key, value|
+              if !value
+                puts "ERROR:  " + key + ": gluegun cannot not generate docs from this link. " +
+                      "Please check links under (" +  key + ") in site.yml file. "
+                exit (false)
+              end
               value.each do |key2|
-                orig_link = key2["Link"].dup
-                link = raw(key2['Link'])
+                if ! key2["Link"]
+                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not generate docs from this link. " +
+                      "Please check links under (" +  key2.keys[0] + ") in site.yml file. "
+                  exit (false)
+                else
+                  orig_link = key2["Link"].dup
+                  link = raw(key2['Link'])
+                end
                 if !key2["Slug"]
                   key2["Slug"] = get_slug(key2)
                 end
@@ -54,7 +70,7 @@ module Gluegun
                 rescue OpenURI::HTTPError
                   # Calling an empty puts to create a new line.
                   puts
-                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not fetch content from this link. " + 
+                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not fetch content from this link. " +
                       "Please check this link (" + orig_link + ") in site.yml file. "
                 end
               end
@@ -63,9 +79,11 @@ module Gluegun
           # Calling an empty puts to create a new line.
           puts
           puts "Generating html file..."
-          puts "Copying css & js..."
+          puts "Copying assets..."
           copy_with_path('lib/css', dest_path)
+          copy_with_path('lib/img', dest_path)
           copy_with_path('lib/js', dest_path)
+          copy_with_path('lib/vendors', dest_path)
           puts "Done"
         else
           puts "Missing document links in the site.yml file."

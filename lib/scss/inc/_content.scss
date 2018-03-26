@@ -1,0 +1,7 @@
+.doc-preview__item {
+  display: none;
+
+  & > h2 {
+    margin-top: 40px;
+  }
+}
