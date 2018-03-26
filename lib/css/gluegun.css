@@ -677,19 +677,6 @@ th, td {
     .img-preview__actions > a:hover {
       background-color: rgba(255, 255, 255, 0.05); }
 
-img {
-    max-width:100%;
-    max-height:100%;
-}
-
-.algolia-autocomplete {
-    width: calc(100% - 2.75rem);
-    left: 0;
-}
-
-.ds-dropdown-menu::before {
-    display: none !important;
-}
 .img-preview__close {
   background: url(../img/icons/close.svg) no-repeat center; }
 

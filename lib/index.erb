@@ -15,6 +15,28 @@
     <link href="vendors/highlight.js/default.min.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <%- if !@site_map['Plugins'].nil? -%>
+      <%- @site_map['Plugins'].each do |categories| -%>
+        <%- if categories.key?("Algolia") && !categories["Algolia"].nil? -%>
+          <%- if categories["Algolia"].key?("apiKey") && categories["Algolia"].key?("index") -%>
+            <style type="text/css">
+              .algolia-autocomplete {
+                width: 100%;
+                left: 0; }
+              .algolia-autocomplete .ds-dropdown-menu {
+                min-width: 500px;
+                max-width: 800px; }
+              @media (max-width: 991px) {
+                .algolia-autocomplete .ds-dropdown-menu {
+                  min-width: 200px; } }
+              .algolia-autocomplete .ds-dropdown-menu:before {
+                display: none !important; }
+            </style>
+          <%- end -%>
+        <%- end -%>
+      <%- end -%>
+    <%- end -%>
   </head>
 
   <body>
