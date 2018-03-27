@@ -1,5 +1,5 @@
 # Gluegun
-Gluegun glues markdown files to generate a beautiful documenation site.
+Gluegun glues markdown files to generate a beautiful documentation site.
  
 ## Installation
 
