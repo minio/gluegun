@@ -399,6 +399,9 @@ blockquote {
   .doc-preview__item > h2 {
     margin-top: 40px; }
 
+.active {
+  display: block; }
+
 select,
 input,
 textarea {
@@ -576,6 +579,8 @@ textarea {
   padding: 0 0 15px 0;
   list-style: none;
   display: none; }
+  .doc-link__items .doc-link__active {
+    color: #fff; }
   .doc-link__items > li > a {
     display: block;
     -webkit-transition: color 300ms;
@@ -584,7 +589,7 @@ textarea {
     padding: 5px 0;
     font-size: 16px; }
     .doc-link__items > li > a:hover {
-      color: #fff; }
+      color: rgba(255, 255, 255, 0.875); }
 
 .doc-link__header {
   padding: 20px 30px 20px 0;
@@ -677,19 +682,6 @@ th, td {
     .img-preview__actions > a:hover {
       background-color: rgba(255, 255, 255, 0.05); }
 
-img {
-    max-width:100%;
-    max-height:100%;
-}
-
-.algolia-autocomplete {
-    width: calc(100% - 2.75rem);
-    left: 0;
-}
-
-.ds-dropdown-menu::before {
-    display: none !important;
-}
 .img-preview__close {
   background: url(../img/icons/close.svg) no-repeat center; }
 

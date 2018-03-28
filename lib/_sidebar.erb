@@ -10,25 +10,30 @@
 
                 <%- @site_map['Documents'].each do |categories| -%>
                     <%- categories.each do |key, value| -%>
-                        <li class="doc-link__category">
+                        <%- cat_first_entry = true -%>
+                        <%- if key===@site_map['Documents'][0].keys[0] && cat_first_entry -%>
+                            <%- cat_active_keywords=["toggled", "display: block"] -%>
+                            <%- cat_first_entry = false -%>
+                        <%- else -%>
+                            <%- cat_active_keywords=["", "display: none"] -%>
+                        <%- end -%>
+                        <li class="doc-link__category <%=cat_active_keywords[0]%>">  
                             <a href="" class="doc-link__header"><%= key -%></a>
-
                             <%- first_entry = true -%>
-
-                            <ul class="doc-link__items">
+                            <ul class="doc-link__items" style="<%=cat_active_keywords[1]%>">
                                 <%- value.each do |key2| -%>
-                                    <%- if key===@site_map.keys[0] && first_entry -%>
-                                        <%- active_keyword="active" -%>
+                                    <%- if key===@site_map['Documents'][0].keys[0] && first_entry -%>
+                                        <%- active_keyword="doc-link__active" -%>
                                         <%- first_entry = false -%>
                                     <%- else -%>
                                         <%- active_keyword="" -%>
                                     <%- end -%>
-                                     <%- if reveal(raw(key2["Link"])) -%>
+                                    <%- if reveal(raw(key2["Link"])) -%>
                                         <li>
                                         <%- if !key2["Slug"] -%>
                                             <%- key2["Slug"] = get_slug(key2) -%>
                                         <%- end -%>
-                                        <a class="<%=active_keyword%>" href="#<%=key2["Slug"]%>">
+                                        <a class="<%=active_keyword%>" href="#<%=key2['Slug']%>">
                                             <%= key2.keys[0] -%>
                                         </a>
                                         </li>
