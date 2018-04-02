@@ -39,6 +39,13 @@ module Gluegun
 
     def self.gluegun_generate_pages(site_config_file)
       config_file = get_config_file(site_config_file)
+      partial_erb_arr =[
+              'lib/index.erb',
+              'lib/_sidebar.erb',
+              'lib/_header.erb',
+              'lib/_content.erb',
+              'lib/_footer.erb'
+              ]
       @site_map = YAML.load(open(config_file).read)
       dest_path = @site_map['Output']
       if ! dest_path.nil?
@@ -65,7 +72,13 @@ module Gluegun
                 end
                 begin
                   File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
-                    f.puts(GitHub::Markdown.render_gfm(open(link).read))
+                    partial_erb_arr.each do |partial_erb|
+                      # Set nil to "-" to activate "<%-" and "-%>" characters
+                      # for non-printing lines in erb file.
+                      # This will prevent extraneous newlines and indentations
+                      # in the generated html file.
+                      f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
+                    end
                   end
                 rescue OpenURI::HTTPError
                   # Calling an empty puts to create a new line.

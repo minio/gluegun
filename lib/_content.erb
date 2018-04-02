@@ -1,21 +1,13 @@
         <section class="doc-preview">
-                 <% if !@site_map['Documents'].nil? %>
-                        <%- @site_map['Documents'].each do |categories| -%>
-                                <%- categories.each do |key, value| -%>
-                                        <%- first_entry = true -%>
-                                        <%- value.each do |key2| -%>
-                                                <%- if key===@site_map['Documents'][0].keys[0] && first_entry -%>
-                                                        <%- active_keyword="active" -%>
-                                                        <%- first_entry = false -%>
-                                                <%- else -%>
-                                                        <%- active_keyword="" -%>
-                                                <%- end -%>
-                                                <div class="doc-preview__item <%=active_keyword%>" id="<%=key2["Slug"]%>">
-                                                        <%- linked_doc = key2["Link"] -%>
-                                                        <%=  reveal(raw(linked_doc)) -%>
-                                                </div>
-                                        <%- end -%>
-                                <%- end -%>
-                        <%- end -%>
+
+                <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
+                <%-# key2 is defined for all pages except for index.html -%>
+                <%- if defined?(key2) -%>
+                        <%- linked_doc = key2["Link"] -%>
+                <%- else -%>
+
+                        <%-# Take the first link from the .yml file while generating index.html -%>
+                        <%- linked_doc =  @site_map['Documents'][0].values[0][0]["Link"] -%>
                 <%- end -%>
+                <%=  reveal(raw(linked_doc)) -%>
         </section>
