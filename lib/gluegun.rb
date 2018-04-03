@@ -54,13 +54,13 @@ module Gluegun
           @site_map['Documents'].each do |categories|
             categories.each do |key, value|
               if !value
-                puts "ERROR:  " + key + ": gluegun cannot not generate docs from this link. " +
+                puts "ERROR:  " + key + ": gluegun cannot generate docs from this link. " +
                       "Please check links under (" +  key + ") in site.yml file. "
                 exit (false)
               end
               value.each do |key2|
                 if ! key2["Link"]
-                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not generate docs from this link. " +
+                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot generate docs from this link. " +
                       "Please check links under (" +  key2.keys[0] + ") in site.yml file. "
                   exit (false)
                 else
@@ -72,6 +72,8 @@ module Gluegun
                 end
                 begin
                   File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
+                    # Check if link is valid
+                    open(link)
                     partial_erb_arr.each do |partial_erb|
                       # Set nil to "-" to activate "<%-" and "-%>" characters
                       # for non-printing lines in erb file.
@@ -80,10 +82,10 @@ module Gluegun
                       f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
                     end
                   end
-                rescue OpenURI::HTTPError
+                rescue => e
                   # Calling an empty puts to create a new line.
                   puts
-                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not fetch content from this link. " +
+                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot fetch content from this link. " +
                       "Please check this link (" + orig_link + ") in site.yml file. "
                 end
               end
@@ -108,9 +110,11 @@ module Gluegun
 
     def self.reveal(link)
       begin
-        response = GitHub::Markdown.render_gfm(open(link).read)
-        return response
-      rescue OpenURI::HTTPError
+        if (!link.nil?)
+          response = GitHub::Markdown.render_gfm(open(link).read)
+          return response
+        end
+      rescue => e
       end
     end
 
