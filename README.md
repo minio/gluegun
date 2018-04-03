@@ -1,6 +1,11 @@
 # Gluegun
 Gluegun glues markdown files to generate a beautiful documentation site.
  
+
+## Pre-Requisite
+
+A minimum version of ruby2.4 is required.
+
 ## Installation
 
 Add this line to your application's Gemfile:
