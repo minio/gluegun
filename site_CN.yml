@@ -1,0 +1,280 @@
+Site: "Minio Docs"
+Output: "cn"
+Logo: "https://minio.io/img/logo/wordmark_white.svg"
+
+Language:
+  - English: https://docs.minio.io
+
+Plugins:
+  - Algolia:
+      apiKey: "0ba0d26da4d1483f96c03fe508304a64"
+      index: "minio"
+  - Google Analytics: "UA-56860620-7"
+
+Documents:
+  - Minio服务器: # Minio Server
+      - Minio快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/minio/master/README_zh_CN.md
+        Slug: minio-quickstart-guide
+
+      - Minio Docker 快速入门:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/docker/README.md
+        Slug: minio-docker-quickstart-guide
+
+      - Minio纠删码快速入门:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/erasure/README.md
+        Slug: minio-erasure-code-quickstart-guide
+
+      - 分布式Minio快速入门:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/distributed/README.md
+        Slug: distributed-minio-quickstart-guide
+
+      - 使用TLS安全的访问Minio服务:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/tls/README.md
+        Slug: how-to-secure-access-to-minio-server-with-tls
+
+      - Minio存储桶通知指南:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/bucket/notifications/README.md
+        Slug: minio-bucket-notification-guide
+
+      - Minio Server Limits Per Tenant:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/minio-limits.md
+        Slug: minio-server-limits-per-tenant
+
+      - Minio Server器配置指南:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/config/README.md
+        Slug: minio-server-configuration-guide
+
+      - Minio多租户（Multi-tenant）部署指南:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/multi-tenancy/README.md
+        Slug: multi-tenant-minio-deployment-guide
+
+      - Minio Azure 网关:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/gateway/azure.md
+        Slug: minio-gateway-for-azure
+
+      - Minio GCS 网关:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/gateway/gcs.md
+        Slug: minio-gateway-for-gcs
+
+      - Minio Gateway for NAS:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/gateway/nas.md
+        Slug: minio-gateway-for-nas
+
+      - Minio Large Bucket Support Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/large-bucket/README.md
+        Slug: minio-large-bucket-support-quickstart-guide
+
+      - Minio Disk Cache Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/disk-caching/README.md
+        Slug: minio-disk-cache-guide
+
+  - Minio客户端: # Minio Client
+      - Minio客户端快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/mc/master/README_zh_CN.md
+        Slug: minio-client-quickstart-guide
+
+      - Minio Client完全指南:
+        Link: https://raw.githubusercontent.com/minio/mc/master/docs/zh_CN/minio-client-complete-guide.md
+        Slug: minio-client-complete-guide
+
+  - Minio SDKs:
+      - JavaScript Client快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/minio-js/master/README_zh_CN.md
+        Slug: javascript-client-quickstart-guide
+
+      - JavaScript Client API参考文档:
+        Link: https://raw.githubusercontent.com/minio/minio-js/master/docs/zh_CN/API.md
+        Slug: javascript-client-api-reference
+
+      - Java Client快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/minio-java/master/README_zh_CN.md
+        Slug: java-client-quickstart-guide
+
+      - Java Client API参考文档:
+        Link: https://raw.githubusercontent.com/minio/minio-java/master/docs/zh_CN/API.md
+        Slug: java-client-api-reference
+
+      - Python Client快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/minio-py/master/README_zh_CN.md
+        Slug: python-client-quickstart-guide
+
+      - Python Client API文档:
+        Link: https://raw.githubusercontent.com/minio/minio-py/master/docs/zh_CN/API.md
+        Slug: python-client-api-reference
+
+      - Golang Client快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/minio-go/master/README_zh_CN.md
+        Slug: golang-client-quickstart-guide
+
+      - Golang Client API文档:
+        Link: https://raw.githubusercontent.com/minio/minio-go/master/docs/zh_CN/API.md
+        Slug: golang-client-api-reference
+
+      - .NET Client快速入门指南:
+        Link: https://raw.githubusercontent.com/minio/minio-dotnet/master/README_zh_CN.md
+        Slug: dotnet-client-quickstart-guide
+
+      - .NET Client API参考文档:
+        Link: https://raw.githubusercontent.com/minio/minio-dotnet/master/Docs/zh_CN/API.md
+        Slug: dotnet-client-api-reference
+
+  - 完整的例子: # Full Examples
+      - JavaScript Shopping App:
+        Link: https://raw.githubusercontent.com/minio/minio-js-store-app/master/README_zh_CN.md
+        Slug: javascript-shopping-app
+
+      - Java Photo API Service:
+        Link: https://raw.githubusercontent.com/minio/minio-java-rest-example/master/README_zh_CN.md
+        Slug: java-photo-api-service
+
+      - Go Music Player App:
+        Link: https://raw.githubusercontent.com/minio/minio-go-media-player/master/README_zh_CN.md
+        Slug: go-music-player-app
+
+      - Android Photo App:
+        Link: https://raw.githubusercontent.com/minio/android-photo-app/master/README_zh_CN.md
+        Slug: android-photo-app
+
+      - Swift Photo App:
+        Link: https://raw.githubusercontent.com/minio/swift-photo-app/master/README_zh_CN.md
+        Slug: swift-photo-app
+
+      - RoR Resume Uploader App:
+        Link: https://raw.githubusercontent.com/minio/ror-resumeuploader-app/master/README_zh_CN.md
+        Slug: ror-resume-uploader-app
+
+  - 烹饪书: # Cookbook
+      - 使用S3cmd操作Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/s3cmd-with-minio.md
+        Slug: s3cmd-with-minio
+
+      - 使用AWS CLI结合Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-cli-with-minio.md
+        Slug: aws-cli-with-minio
+
+      - restic结合Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/restic-with-minio.md
+        Slug: restic-with-minio
+
+      - 将MySQL备份存储到Minio:
+        Link: https://github.com/minio/cookbook/blob/master/docs/zh_CN/store-mysql-backups-in-minio.md
+        Slug: store-mysql-backups-in-minio
+
+      - 将MongoDB备份存储到Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/store-mongodb-backups-in-minio.md
+        Slug: store-mongodb-backups-in-minio
+
+      - 将PostgreSQL备份存储到Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/store-postgresql-backups-in-minio.md
+        Slug: store-postgresql-backups-in-minio
+
+      - 为Minio设置Caddy proxy:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/setup-caddy-proxy-with-minio.md
+        Slug: setup-caddy-proxy-with-minio
+
+      - 为Minio设置Nginx代理:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/setup-nginx-proxy-with-minio.md
+        Slug: setup-nginx-proxy-with-minio
+
+      - Store Apache Logs into Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aggregate-apache-logs-with-fluentd-and-minio.md
+        Slug: aggregate-apache-logs-with-fluentd-and-minio
+
+      - Rclone结合Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/rclone-with-minio.md
+        Slug: rclone-with-minio-server
+
+      - 结合Minio运行Deis Workflow:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/running-deis-workflow-with-minio.md
+        Slug: running-deis-workflow-with-minio
+
+      - 为Minio Server设置Apache HTTP proxy:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/setup-apache-http-proxy-with-minio.md
+        Slug: setup-apache-http-proxy-with-minio-server
+
+      - 使用pre-signed URLs通过浏览器上传:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/presigned-put-upload-via-browser.md
+        Slug: upload-files-from-browser-using-pre-signed-urls
+
+      - 如何在FreeNAS中运行Minio?:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/running-minio-in-freenas.md
+        Slug: how-to-run-minio-in-freenas
+
+      - 如何使用Cyberduck结合Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/how-to-use-cyberduck-with-minio.md
+        Slug: how-to-use-cyberduck-with-minio
+
+      - 如何使用AWS SDK for PHP操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-php-with-minio.md
+        Slug: how-to-use-aws-sdk-for-php-with-minio-server
+
+      - 如何使用AWS SDK for Ruby操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-ruby-with-minio.md
+        Slug: how-to-use-aws-sdk-for-ruby-with-minio-server
+
+      - 如何使用AWS SDK for Python操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-python-with-minio.md
+        Slug: how-to-use-aws-sdk-for-python-with-minio-server
+
+      - 如何使用Mountain Duck结合Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/how-to-use-mountainduck-with-minio.md
+        Slug: how-to-use-mountain-duck-with-minio
+
+      - 如何使用AWS SDK for Javascript操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-javascript-with-minio.md
+        Slug: how-to-use-aws-sdk-for-javascript-with-minio-server
+
+      - 如何使用Træfɪk代理多个Minio服务:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/multiple-minio-servers-with-traefik.md
+        Slug: how-to-run-multiple-minio-servers-with-traef-k
+
+      - 如何使用AWS SDK for Go操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-go-with-minio.md
+        Slug: how-to-use-aws-sdk-for-go-with-minio-server
+
+      - 如何使用AWS SDK for Java操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-java-with-minio.md
+        Slug: how-to-use-aws-sdk-for-java-with-minio-server
+
+      - 如何使用Paperclip操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/how-to-use-paperclip-with-minio.md
+        Slug: how-to-use-paperclip-with-minio-server
+
+      - 如何使用AWS SDK for .NET操作Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/aws-sdk-for-dotnet-with-minio.md
+        Slug: how-to-use-aws-sdk-for-net-with-minio-server
+
+      - 如何使用aws-cli调用Minio服务端加密:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/how-to-use-minio-server-side-encryption-with-aws-cli.md
+        Slug: how-to-use-minio-s-server-side-encryption-with-aws-cli
+
+  - 相关项目: # Related Projects
+      - 使用Certbot生成Let's Encrypt证书:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/generate-lets-encypt-certificate-using-certbot-for-minio.md
+        Slug: generate-let-s-encypt-certificate-using-concert-for-minio
+
+      - 如何安装Golang?:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/zh_CN/how-to-install-golang.md
+        Slug: how-to-install-golang
+
+  - Minio部署: # Minio Deployment
+      - Minio部署快速入门:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/orchestration/README.md
+        Slug: minio-deployment-quickstart-guide
+
+      - 使用Docker Swarm部署Minio:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/orchestration/docker-swarm/README.md
+        Slug: deploy-minio-on-docker-swarm
+
+      - 使用Kubernetes部署Minio:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/orchestration/kubernetes/README.md
+        Slug: deploy-minio-on-kubernetes
+
+      - 在 DC/OS上部署Minio:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/orchestration/dcos/README.md
+        Slug: deploy-minio-on-dc-os
+
+      - 使用Docker Compose部署Minio:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/zh_CN/orchestration/docker-compose/README.md
+        Slug: deploy-minio-on-docker-compose
