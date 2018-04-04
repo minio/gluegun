@@ -13,10 +13,10 @@
 .search__text {
   border: 0;
   border-bottom: 1px solid $border-color;
-  height: 50px;
+  height: 45px;
   padding: 0 0 0 30px;
   width: 100%;
-  background: url(../img/icons/search.svg) no-repeat bottom 17px left;
+  background: url(../img/icons/search.svg) no-repeat bottom 15px left;
   background-size: 14px;
   transition: border-bottom-color 300ms;
   font-size: $font-size-base - 1;
@@ -31,46 +31,70 @@
 }
 
 .doc-actions {
-  margin-left: 30px;
   display: flex;
+}
 
-  @media (max-width: $screen-sm-max) {
+.doc-actions__item {
+  border: 1px solid $border-color;
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: $white;
+  font-size: $font-size-base - 3;
+  line-height: 33px;
+  transition: border-color 300ms;
+  margin-left: 15px;
+
+  &, &:hover, &:focus {
+    color: $body-color;
+  }
+
+  @media(min-width: $screen-lg-min) {
+    padding: 4px 15px 3px;
+  }
+
+  @media(max-width: $screen-md-max) {
+    padding: 4px 0;
+    width: 45px;
+    text-align: center;
+  }
+
+  &:hover {
+    border-color: darken($border-color, 20%);
+  }
+
+  & > span {
+    margin-left: 5px;
+
+    @media(max-width: $screen-md-max) {
+      display: none;
+    }
+  }
+
+  & > img {
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+}
+
+.doc-actions__item--select {
+  background: $white url(../img/icons/select.svg) no-repeat right 10px center;
+}
+
+.doc-actions__item--web {
+  @media(max-width: $screen-md-max) {
     display: none;
   }
 }
 
-@media(min-width: $screen-md-min) {
-  .doc-actions__item {
-    border: 1px solid $border-color;
-    display: inline-block;
-    vertical-align: bottom;
-    padding: 4px 20px 3px;
-    background-color: $white;
-    font-size: $font-size-base - 3;
-    line-height: 33px;
-    transition: border-color 300ms;
-
-    &, &:hover, &:focus {
-      color: $body-color;
-    }
-
-    &:hover {
-      border-color: darken($border-color, 20%);
-    }
-  }
-
-  .doc-actions__item--select {
-    background: $white url(../img/icons/select.svg) no-repeat right 10px center;
-  }
-}
 
 @media(max-width: $screen-md-max) {
   .sidebar-toggle {
-    height: 49px;
-    width: 50px;
+    height: 42px;
+    width: 45px;
     background: url(../img/icons/sidebar-toggle.svg) center no-repeat;
     border: 1px solid $border-color;
-    margin-right: 20px;
+    margin-right: 15px;
     transition: border-color 300ms;
 
     &:hover,

@@ -4,7 +4,10 @@
 
 .dropdown__toggle--caret {
   position: relative;
-  padding-right: 25px;
+
+  @media(min-width: $screen-lg-min) {
+    padding-right: 25px;
+  }
 
   &:after {
     content: '';
