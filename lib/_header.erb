@@ -1,3 +1,5 @@
+        <%= ERB.new(File.read('lib/_sidebar.erb'), nil, '-').result(binding) %>
+        
         <header class="header">
             <a href="" class="sidebar-toggle"></a>
 

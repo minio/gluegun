@@ -14,7 +14,6 @@ module Gluegun
       html_file = 'index.html'
       partial_erb_arr =[
               'lib/index.erb',
-              'lib/_sidebar.erb',
               'lib/_header.erb',
               'lib/_content.erb',
               'lib/_footer.erb'
@@ -41,7 +40,6 @@ module Gluegun
       config_file = get_config_file(site_config_file)
       partial_erb_arr =[
               'lib/index.erb',
-              'lib/_sidebar.erb',
               'lib/_header.erb',
               'lib/_content.erb',
               'lib/_footer.erb'
@@ -100,6 +98,25 @@ module Gluegun
           puts "Done"
         else
           puts "Missing document links in the site.yml file."
+        end
+      else
+        puts "Missing destination directory in site.yml file."
+      end
+    end
+
+    def self.generate_sidebar(site_config_file)
+      config_file = get_config_file(site_config_file)
+      erb_file = '_sidebar.erb'
+      @site_map = YAML.load(open(config_file).read)
+      dest_path = "lib"
+      if !dest_path.nil?
+        FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
+          File.open(File.join(dest_path, erb_file), "w+") do |f|
+            # Set nil to "-" to activate "<%-" and "-%>" characters
+            # for non-printing lines in erb file.
+            # This will prevent extraneous newlines and indentations
+            # in the generated html file.
+            f.puts(ERB.new(File.read('lib/_sidebar-template.erb'), nil, '-').result(binding))
         end
       else
         puts "Missing destination directory in site.yml file."

@@ -1,0 +1,66 @@
+    <aside class="sidebar">
+        <a href="" class="sidebar__close"></a>
+
+        <a href="/" class="logo">
+            <img src="<%= @site_map['Logo'] %>" alt="">
+        </a>
+
+        <ul class="doc-link">
+            <% if !@site_map['Documents'].nil? %>
+                <%= "<%- first_link = true -\%\>" -%>
+                <%- @site_map['Documents'].each do |heading| -%>
+                    <%- heading.each do |key, value| -%>
+                        <%= "<%- active_keywords = ['', ''] -\%\>" -%>
+
+                        <%= "<%- if defined?(categories) && categories.keys[0] ==='" + key + "'-\%\>" -%>
+
+                            <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
+
+                        <%= "<%- elsif !defined?(key2) && first_link -\%\>" -%>
+
+                            <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
+                            
+                        <%= "<%- end -\%\>" -%>
+
+                            <li class='doc-link__category <%= "<%= active_keywords[0] -\%\>" -%>'>
+                                <a href="" class="doc-link__header">
+                                    <%= key -%>
+                                </a>
+                                <ul class="doc-link__items" style='<%= "<%= active_keywords[1] -\%\>" -%>'>
+                                    <%- value.each do |value2| -%>
+                                        <%- if !value2["Link"].nil? && reveal(raw(value2["Link"])) -%>
+                                                <li>
+                                                    <%- if !value2["Slug"] -%>
+                                                        <%- value2["Slug"] = get_slug(value2) -%>
+                                                    <%- end -%>
+                                                    <%= "<%- if defined?(key2) && key2['Slug'] === '" + value2['Slug'] + "'-\%\>" -%>
+
+                                                        <a href="<%=value2["Slug"]%>.html" class="doc-link__active">
+                                                            <%= value2.keys[0] -%>
+                                                        </a>
+                                                    <%= "<%- elsif !defined?(key2) && first_link -\%\>" -%>
+
+                                                        <a href="<%=value2["Slug"]%>.html" class="doc-link__active">
+                                                            <%= value2.keys[0] -%>
+                                                        </a>
+                                                        <%= "<%- first_link = false -\%\>" -%>
+                                                        
+                                                    <%= "<%- else -\%\>" -%>
+
+                                                        <a href="<%=value2["Slug"]%>.html">
+                                                            <%= value2.keys[0] -%>
+                                                        </a>
+                                                    <%= "<%- end -\%\>" -%>
+
+                                                </li>
+                                        <%- end -%>
+                                    <%- end -%>
+                                </ul>
+                            </li>
+                    <%- end -%>
+                <%- end -%>
+             <% end %>
+        </ul>
+    </aside>
+
+    <section class="content">
