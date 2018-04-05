@@ -6,9 +6,17 @@
             </div>
 
             <div class="doc-actions">
+                <a href="" class="doc-actions__item doc-actions__item--web">
+                    <img src="img/icons/edit.svg" alt="">
+                    <span>Suggest an Edit</span>
+                </a>
+
                 <% if !@site_map['Language'].nil? %>
                     <div class="dropdown">
-                        <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">Translation</a>
+                        <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
+                            <img src="img/icons/translate.svg" alt="">
+                            <span>Translation</span>
+                        </a>
 
                         <div class="dropdown__menu dropdown__menu--right">
                             <%- @site_map['Language'].each do |categories| -%>
