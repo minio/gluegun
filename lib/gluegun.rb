@@ -141,6 +141,18 @@ module Gluegun
       return link
     end
 
+    def self.get_github_link(link)
+      if link =~ /\/raw.githubusercontent.com\//
+        # Link is not Github link, convert it
+        replacements = [ ["raw.githubusercontent", "github"],
+                         ["/master/", "/blob/master/"] ]
+        replacements.each do |replacement|
+          link.gsub!(replacement[0], replacement[1])
+        end
+      end
+      return link
+    end
+
     def self.copy_with_path(src, dst)
       FileUtils.mkdir_p(File.dirname(dst))
       FileUtils.cp_r(src, dst)
