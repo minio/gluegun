@@ -6,7 +6,17 @@
             </div>
 
             <div class="doc-actions">
-                <a href="" class="doc-actions__item doc-actions__item--web">
+                <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
+                <%-# key2 is defined for all pages except for index.html -%>
+                <%- if defined?(key2) -%>
+                    <%-# duplicate link to prevent original link from being modified -%>
+                    <%- doc_link = get_github_link(key2["Link"].dup) -%>
+                <%- else -%>
+                    <%-# duplicate link to prevent original link from being modified -%>
+                    <%- doc_link = get_github_link(@site_map['Documents'][0].values[0][0]["Link"].dup) -%>
+                <%- end -%>
+
+                <a href="<%= doc_link -%>" class="doc-actions__item doc-actions__item--web">
                     <img src="img/icons/edit.svg" alt="">
                     <span>Suggest an Edit</span>
                 </a>
