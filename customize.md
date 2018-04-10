@@ -100,3 +100,8 @@ $dropdown-item-color: $text-muted-color;
 $footer-text-color: $text-muted-color;
 
 ```
+## Building Themes 
+After modifying the above scss/inc/_variables.scss file, follow these three steps to build.
+ * Step 1: simply use `rake` command.
+ * Step 2: After building the gem, `gem install gluegun` installs the built gem. 
+ * Step 3: Finally generate site with new customized css using `./gluegun generate site.yml` command.
