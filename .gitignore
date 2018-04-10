@@ -11,3 +11,6 @@
 /gluegun-*.gem
 /package-lock.json
 .ruby-version
+*.lock
+node_modules
+lib/_sidebar.erb
