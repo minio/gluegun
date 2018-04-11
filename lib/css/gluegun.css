@@ -356,6 +356,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
 pre {
+  position: relative;
   background-color: #f8f8f8;
   padding: 25px 30px;
   margin: 0 0 20px;
@@ -645,11 +646,15 @@ textarea {
     display: block;
     background-color: #03A9F4;
     color: #fff;
-    padding: 0.7rem 1rem;
+    padding: 0.7rem 1rem 0.6rem;
     border-radius: 0.2rem 0.2rem 0 0;
     -webkit-box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
             box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
-    font-size: 0.8rem; }
+    font-size: 0.8rem;
+    -webkit-transition: background-color 300ms;
+    transition: background-color 300ms; }
+    .footer__widget > a:hover {
+      background-color: #0398db; }
 
 table {
   background-color: #fff;
@@ -805,3 +810,21 @@ th, td {
 
 .body-locked {
   overflow: hidden !important; }
+
+.copy-to-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  border: 5px solid #f8f8f8;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #777;
+  -webkit-transition: color 300ms;
+  transition: color 300ms;
+  font-weight: normal; }
+  .copy-to-clipboard:hover {
+    color: #000; }

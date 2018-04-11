@@ -2,3 +2,25 @@
 .body-locked {
   overflow: hidden !important;
 }
+
+
+// Copy to clipboard
+.copy-to-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $white;
+  border: 5px solid $pre-bg;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  font-family: $font-family;
+  cursor: pointer;
+  border-radius: 2px;
+  color: $text-muted-color;
+  transition: color 300ms;
+  font-weight: $font-weight-base;
+  
+  &:hover {
+    color: $body-color;
+  }
+}

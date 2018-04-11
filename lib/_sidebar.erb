@@ -1,0 +1,64 @@
+    <aside class="sidebar">
+        <a href="" class="sidebar__close"></a>
+
+        <a href="/" class="logo">
+            <img src="https://minio.io/img/logo/wordmark_white.svg" alt="">
+        </a>
+
+        <ul class="doc-link">
+            
+                <%- first_link = true -%>                        <%- active_keywords = ['', ''] -%>
+                        <%- if defined?(categories) && categories.keys[0] ==='Get Started'-%>
+                            <%- active_keywords = ['toggled', 'display: block'] -%>
+                        <%- elsif !defined?(key2) && first_link -%>
+                            <%- active_keywords = ['toggled', 'display: block'] -%>                            
+                        <%- end -%>
+                            <li class='doc-link__category <%= active_keywords[0] -%>'>
+                                <a href="" class="doc-link__header">
+                                    Get Started                                </a>
+                                <ul class="doc-link__items" style='<%= active_keywords[1] -%>'>
+                                                <li>
+                                                    <%- if defined?(key2) && key2['Slug'] === 'gluegun-quick-start-guide'-%>
+                                                        <a href="gluegun-quick-start-guide.html" class="doc-link__active">
+                                                            Gluegun Quick Start Guide                                                        </a>
+                                                    <%- elsif !defined?(key2) && first_link -%>
+                                                        <a href="gluegun-quick-start-guide.html" class="doc-link__active">
+                                                            Gluegun Quick Start Guide                                                        </a>
+                                                        <%- first_link = false -%>                                                        
+                                                    <%- else -%>
+                                                        <a href="gluegun-quick-start-guide.html">
+                                                            Gluegun Quick Start Guide                                                        </a>
+                                                    <%- end -%>
+                                                </li>
+                                </ul>
+                            </li>
+                        <%- active_keywords = ['', ''] -%>
+                        <%- if defined?(categories) && categories.keys[0] ==='Theming'-%>
+                            <%- active_keywords = ['toggled', 'display: block'] -%>
+                        <%- elsif !defined?(key2) && first_link -%>
+                            <%- active_keywords = ['toggled', 'display: block'] -%>                            
+                        <%- end -%>
+                            <li class='doc-link__category <%= active_keywords[0] -%>'>
+                                <a href="" class="doc-link__header">
+                                    Theming                                </a>
+                                <ul class="doc-link__items" style='<%= active_keywords[1] -%>'>
+                                                <li>
+                                                    <%- if defined?(key2) && key2['Slug'] === 'gluegun-theming-guide'-%>
+                                                        <a href="gluegun-theming-guide.html" class="doc-link__active">
+                                                            Gluegun Theming Guide                                                        </a>
+                                                    <%- elsif !defined?(key2) && first_link -%>
+                                                        <a href="gluegun-theming-guide.html" class="doc-link__active">
+                                                            Gluegun Theming Guide                                                        </a>
+                                                        <%- first_link = false -%>                                                        
+                                                    <%- else -%>
+                                                        <a href="gluegun-theming-guide.html">
+                                                            Gluegun Theming Guide                                                        </a>
+                                                    <%- end -%>
+                                                </li>
+                                </ul>
+                            </li>
+             
+        </ul>
+    </aside>
+
+    <section class="content">
