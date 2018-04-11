@@ -5,3 +5,24 @@
   border-top: 1px solid $border-color;
   padding-top: 20px;
 }
+
+.footer__widget {
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+
+  & > a {
+    display: block;
+    background-color: $footer-widget-bg;
+    color: $footer-widget-color;
+    padding: 0.7rem 1rem 0.6rem;
+    border-radius: 0.2rem 0.2rem 0 0;
+    box-shadow: 0 -2px 3px 0 rgba($black, 0.1);
+    font-size: 0.8rem;
+    transition: background-color 300ms;
+
+    &:hover {
+      background-color: darken($footer-widget-bg, 5%);
+    }
+  }
+}

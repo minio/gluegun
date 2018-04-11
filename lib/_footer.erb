@@ -1,38 +1,60 @@
-      
-        <footer id="footer" class="footer">
-            Gluegun project is licensed under Apache 2.0 License.
-            <%- if !@site_map['Plugins'].nil? -%>
-              <%- @site_map['Plugins'].each do |categories| -%>
-                <%- if categories.key?("Google Analytics") -%>
-                  <!-- Google Analytics -->
-                  <script>
-                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-                    ga('create', '<%= categories["Google Analytics"] %>', 'auto');
-                    ga('send', 'pageview');
-                  </script>
-                <%- elsif categories.key?("Algolia") && !categories["Algolia"].nil? -%>
-                  <%- if categories["Algolia"].key?("apiKey") && categories["Algolia"].key?("index") -%>
-                    <!-- Algolia DocSearch -->
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-                    <script type="text/javascript">
-                      docsearch({
-                        apiKey: '<%= categories["Algolia"]["apiKey"] %>',
-                        indexName: '<%= categories["Algolia"]["index"] %>',
-                        inputSelector: '.search__text'
-                      });
-                    </script>
-                  <%- end -%>
+            <footer class="footer">
+                Gluegun project is licensed under Apache 2.0 License.
+                <%- if !@site_map['Plugins'].nil? -%>
+                    <%- @site_map['Plugins'].each do |categories| -%>
+                        <%- if categories.key?("Footer Widget") && !categories["Footer Widget"].nil? -%>
+                            <%- if categories["Footer Widget"].key?("Label") && categories["Footer Widget"].key?("Link") -%>
+
+                                <div class="footer__widget">
+                                    <a href="<%= categories["Footer Widget"]["Link"] %>"><%= categories["Footer Widget"]["Label"] %></a>
+                                </div>
+
+                            <%- end -%>
+                        <%- end -%>
+                    <%- end -%>
                 <%- end -%>
-              <%- end -%>
-            <%- end -%>
-        </footer>
+            </footer>
         </section>
 
         <script src="vendors/jquery/jquery-3.3.1.min.js"></script>
         <script src="vendors/highlight.js/highlight.min.js"></script>
+        <script src="vendors/clipboard.js/clipboard.min.js"></script>
         <script src="js/gluegun.min.js"></script>
+
+        <%- if !@site_map['Plugins'].nil? -%>
+            <%- @site_map['Plugins'].each do |categories| -%>
+                <%- if categories.key?("Google Analytics") -%>
+                    <!-- Google Analytics -->
+                    <script>
+                        (function (i, s, o, g, r, a, m) {
+                            i['GoogleAnalyticsObject'] = r;
+                            i[r] = i[r] || function () {
+                                        (i[r].q = i[r].q || []).push (arguments)
+                                    }, i[r].l = 1 * new Date ();
+                            a = s.createElement (o),
+                                    m = s.getElementsByTagName (o)[0];
+                            a.async = 1;
+                            a.src = g;
+                            m.parentNode.insertBefore (a, m)
+                        }) (window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                        ga ('create', '<%= categories["Google Analytics"] %>', 'auto');
+                        ga ('send', 'pageview');
+                    </script>
+
+                <%- elsif categories.key?("Algolia") && !categories["Algolia"].nil? -%>
+                    <%- if categories["Algolia"].key?("apiKey") && categories["Algolia"].key?("index") -%>
+                        <!-- Algolia DocSearch -->
+                        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+                        <script type="text/javascript">
+                            docsearch ({
+                                apiKey: '<%= categories["Algolia"]["apiKey"] %>',
+                                indexName: '<%= categories["Algolia"]["index"] %>',
+                                inputSelector: '.search__text'
+                            });
+                        </script>
+                    <%- end -%>
+                <%- end -%>
+            <%- end -%>
+        <%- end -%>
     </body>
 </html>
