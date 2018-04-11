@@ -9,8 +9,11 @@
   }
 }
 
-body {
+html {
   font-size: $font-size-base;
+}
+
+body {
   font-family: $font-family;
   background-color: $body-bg;
 }

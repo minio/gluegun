@@ -307,8 +307,10 @@ template {
   *:focus, *:active {
     outline: none; }
 
+html {
+  font-size: 18px; }
+
 body {
-  font-size: 18px;
   font-family: "Roboto", sans-serif;
   background-color: #fff; }
 
@@ -634,6 +636,20 @@ textarea {
   font-size: 16px;
   border-top: 1px solid #f0f0f0;
   padding-top: 20px; }
+
+.footer__widget {
+  position: fixed;
+  bottom: 0;
+  right: 1rem; }
+  .footer__widget > a {
+    display: block;
+    background-color: #03A9F4;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border-radius: 0.2rem 0.2rem 0 0;
+    -webkit-box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem; }
 
 table {
   background-color: #fff;
