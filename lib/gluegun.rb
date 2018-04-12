@@ -49,6 +49,7 @@ module Gluegun
       if ! dest_path.nil?
         FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
         if !@site_map['Documents'].nil?
+          puts "Generating Site Content..."
           @site_map['Documents'].each do |categories|
             categories.each do |key, value|
               if !value
@@ -62,6 +63,7 @@ module Gluegun
                       "Please check links under (" +  key2.keys[0] + ") in site.yml file. "
                   exit (false)
                 else
+                  puts  "\t - " + key2.keys[0] + " ....DONE"
                   orig_link = key2["Link"].dup
                   link = raw(key2['Link'])
                 end
@@ -87,15 +89,12 @@ module Gluegun
               end
             end
           end
-          # Calling an empty puts to create a new line.
-          puts
-          puts "Generating html file..."
-          puts "Copying assets..."
+          puts "Copying assets to path."
           copy_with_path('lib/css', dest_path)
           copy_with_path('lib/img', dest_path)
           copy_with_path('lib/js', dest_path)
           copy_with_path('lib/vendors', dest_path)
-          puts "Done"
+          puts "Completed. Host the generated html files at: " + dest_path
         else
           puts "Missing document links in the site.yml file."
         end
@@ -116,7 +115,9 @@ module Gluegun
             # for non-printing lines in erb file.
             # This will prevent extraneous newlines and indentations
             # in the generated html file.
+            print "Generating Site Sidebar..."
             f.puts(ERB.new(File.read('lib/_sidebar-template.erb'), nil, '-').result(binding))
+            puts "DONE"
         end
       else
         puts "Missing destination directory in site.yml file."
