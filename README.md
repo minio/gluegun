@@ -56,5 +56,5 @@ gem install gluegun
 
 Run the gluegun CLI 
 ```
-bin/gluegun generate ./site.yml
+./gluegun generate ./site.yml
 ````
