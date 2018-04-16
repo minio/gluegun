@@ -11,6 +11,7 @@ Plugins:
       apiKey: "ALGOLIA_TOKEN"
       index: "INDEX_NAME"
   - Google Analytics: "UA-XXXXX-Y"
+  - Mixpanel: "MIXPANEL_TOKEN"
   - Footer Widget:
       Label: "Talk to community"
       Link: "/"
