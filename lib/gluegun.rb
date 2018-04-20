@@ -4,6 +4,7 @@ require 'open-uri'
 require 'github/markdown'
 require 'erb'
 require 'fileutils'
+require 'net/http'
 
 module Gluegun
 
@@ -59,18 +60,17 @@ module Gluegun
               end
               value.each do |key2|
                 if ! key2["Link"]
-                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not generate docs from this link. " +
+                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot generate docs from this link. " +
                       "Please check links under (" +  key2.keys[0] + ") in site.yml file. "
                   exit (false)
                 else
                   puts  "\t - " + key2.keys[0] + " ....DONE"
                   orig_link = key2["Link"].dup
-                  link = raw(key2['Link'])
                 end
                 if !key2["Slug"]
                   key2["Slug"] = get_slug(key2)
                 end
-                begin
+                if is_url_valid(key2['Link'])
                   File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
                     partial_erb_arr.each do |partial_erb|
                       # Set nil to "-" to activate "<%-" and "-%>" characters
@@ -80,10 +80,10 @@ module Gluegun
                       f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
                     end
                   end
-                rescue OpenURI::HTTPError
+                else
                   # Calling an empty puts to create a new line.
                   puts
-                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not fetch content from this link. " +
+                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot fetch content from this link. " +
                       "Please check this link (" + orig_link + ") in site.yml file. "
                 end
               end
@@ -126,7 +126,8 @@ module Gluegun
 
     def self.reveal(link)
       begin
-        response = GitHub::Markdown.render_gfm(open(link).read)
+        filtered = filter_banners(open(link).read)
+        response = GitHub::Markdown.render_gfm(filtered)
         return response
       rescue OpenURI::HTTPError
       end
@@ -169,6 +170,38 @@ module Gluegun
         end
       end
       return link
+    end
+
+    def self.is_url_valid(link)
+      begin
+        uri = URI.parse(link)
+        req = Net::HTTP.new(uri.host, uri.port)
+        if uri.scheme == 'https'
+          req.use_ssl = true
+        end
+        res = req.request_head(uri.path)
+        if res.code === "200"
+          return true
+        else
+          return false
+        end
+      rescue => e
+        return false
+      end
+    end
+
+    def self.filter_banners(doc)
+      if !@site_map['Exclude Patterns'].nil? 
+        @site_map['Exclude Patterns'].each do |pattern|
+          if !pattern.nil?
+            regex = Regexp.new(pattern)
+            if doc =~ regex
+              doc.gsub!(regex, '')
+            end
+          end
+        end
+      end
+      return doc
     end
 
     def self.copy_with_path(src, dst)

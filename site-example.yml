@@ -20,6 +20,8 @@ Documents:                                                              # Requir
         Link: github link to the raw md file                            # Required - Document Link     
         Slug: document-title                                            # Optional - Document Slug
 
+Exclude Patterns:                                                       # Optional - Pattern to be filtered out from the fetched markdown
+  - Enter regex here
 
 # Full Example Shown Below
 
@@ -72,3 +74,6 @@ Documents:                                                              # Requir
 
 #       - Minio FreeBSD Quickstart Guide:
 #         Link: https://github.com/minio/minio/blob/master/docs/FreeBSD.md
+
+# Exclude Patterns:                                                     # Optional - Pattern to be filtered out from the fetched markdown
+#   - s?\[\!\[Slack\].*$??
