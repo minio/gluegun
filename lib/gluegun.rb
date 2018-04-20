@@ -4,6 +4,7 @@ require 'open-uri'
 require 'github/markdown'
 require 'erb'
 require 'fileutils'
+require 'net/http'
 
 module Gluegun
 
@@ -20,7 +21,15 @@ module Gluegun
               ]
       @site_map = YAML.load(open(config_file).read)
       dest_path = @site_map['Output']
+      # Check if first link is valid before generating index
+      if !is_link_valid(@site_map['Documents'][0].values[0][0]["Link"])
+        puts "ERROR:  " + @site_map['Documents'][0].keys[0] + " -> " + @site_map['Documents'][0].values[0][0].keys[0] + 
+            ": gluegun cannot generate index page from this link. " +
+            "Please check links under (" +  @site_map['Documents'][0].values[0][0].keys[0] + ") in site.yml file. "
+        exit (false)
+      end
       if !dest_path.nil?
+        puts "Generating Index Page..."
         FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
           File.open(File.join(dest_path, html_file), "w+") do |f|
             partial_erb_arr.each do |partial_erb|
@@ -31,6 +40,7 @@ module Gluegun
             f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
           end
         end
+        puts "Completed. Host the generated html files at: " + dest_path
       else
         puts "Missing destination directory in site.yml file."
       end
@@ -53,24 +63,23 @@ module Gluegun
           @site_map['Documents'].each do |categories|
             categories.each do |key, value|
               if !value
-                puts "ERROR:  " + key + ": gluegun cannot not generate docs from this link. " +
+                puts "ERROR:  " + key + ": gluegun cannot generate docs from this link. " +
                       "Please check links under (" +  key + ") in site.yml file. "
                 exit (false)
               end
               value.each do |key2|
                 if ! key2["Link"]
-                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not generate docs from this link. " +
+                  puts "ERROR:  " + key + " -> " + key2.keys[0] + ": gluegun cannot generate docs from this link. " +
                       "Please check links under (" +  key2.keys[0] + ") in site.yml file. "
                   exit (false)
                 else
                   puts  "\t - " + key2.keys[0] + " ....DONE"
                   orig_link = key2["Link"].dup
-                  link = raw(key2['Link'])
                 end
                 if !key2["Slug"]
                   key2["Slug"] = get_slug(key2)
                 end
-                begin
+                if is_link_valid(key2['Link'])
                   File.open(File.join(dest_path,"/#{key2["Slug"]}.html"), "w+") do |f|
                     partial_erb_arr.each do |partial_erb|
                       # Set nil to "-" to activate "<%-" and "-%>" characters
@@ -80,10 +89,10 @@ module Gluegun
                       f.puts(ERB.new(File.read(partial_erb), nil, '-').result(binding))
                     end
                   end
-                rescue OpenURI::HTTPError
+                else
                   # Calling an empty puts to create a new line.
                   puts
-                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot not fetch content from this link. " +
+                  puts "WARNING:  " + key + " -> " + key2.keys[0] + ": gluegun cannot fetch content from this link. " +
                       "Please check this link (" + orig_link + ") in site.yml file. "
                 end
               end
@@ -94,7 +103,6 @@ module Gluegun
           copy_with_path('lib/img', dest_path)
           copy_with_path('lib/js', dest_path)
           copy_with_path('lib/vendors', dest_path)
-          puts "Completed. Host the generated html files at: " + dest_path
         else
           puts "Missing document links in the site.yml file."
         end
@@ -126,9 +134,12 @@ module Gluegun
 
     def self.reveal(link)
       begin
-        response = GitHub::Markdown.render_gfm(open(link).read)
-        return response
-      rescue OpenURI::HTTPError
+        if (!link.nil?)
+          filtered = filter_banners(open(link).read)
+          response = GitHub::Markdown.render_gfm(filtered)
+          return response
+        end
+      rescue => e
       end
     end
 
@@ -169,6 +180,40 @@ module Gluegun
         end
       end
       return link
+    end
+
+    def self.is_link_valid(link)
+      begin
+        uri = URI.parse(link)
+        req = Net::HTTP.new(uri.host, uri.port)
+        if uri.scheme == "https"
+          req.use_ssl = true
+        end
+        res = req.request_head(uri.path)
+        if res.code === "200"
+          return true
+        else
+          return false
+        end
+      rescue => e
+        return false
+      end
+    end
+
+    def self.filter_banners(doc)
+      if !@site_map['Rules'].nil?
+        if !@site_map['Rules']['Filter'].nil?
+          @site_map['Rules']['Filter'].each do |pattern|
+            if !pattern.nil?
+              regex = Regexp.new(pattern)
+              if doc =~ regex
+                doc.gsub!(regex, '')
+              end
+            end
+          end
+        end
+      end
+      return doc
     end
 
     def self.copy_with_path(src, dst)

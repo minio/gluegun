@@ -14,6 +14,10 @@ Plugins:                                                                # Option
       index: "INDEX_NAME"
   - Google Analytics: "UA-XXXXX-Y"
 
+Rules:                                                                  # Optional - Regex rules
+  Filter:                                                               # Pattern to be filtered out from the fetched markdown
+    - Enter regex here
+
 Documents:                                                              # Required - Documents with links to generate site
   - Category Heading:                                                   # Required- Category Name
       - Document Title:                                                 # Required - Document Title
@@ -36,6 +40,13 @@ Documents:                                                              # Requir
 #       apiKey: "xxxxxxxxxxxxxxxx"
 #       index: "xxxxxxxx"
 #   - Google Analytics: "UA-xxxxxxx-Y"
+
+# Rules:                                                                # Optional - Regex rules
+#   Filter:                                                             # Pattern to be filtered out from the fetched markdown
+#     - s?\[\!\[Slack\].*$??
+#     - s?\[\!\[Gitter\].*$??
+#   Replace:
+#     - minio MINIO
 
 # Documents:                                                            # Required - Documents with links to generate site
 #   - Minio Server:                                                     # Required- Category Name
