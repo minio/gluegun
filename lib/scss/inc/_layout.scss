@@ -2,7 +2,15 @@
     min-height: 100vh;
 
     @media(min-width: $screen-lg-min) {
-        padding: 25px 40px 40px ($sidebar-width + 40px);
+        transition: padding-left 300ms ease-out;
+
+        &:not(.toggled) {
+            padding: 35px 40px 40px ($sidebar-width + 40px);
+        }
+
+        &.toggled {
+            padding: 35px 40px;
+        }
     }
 
     @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
