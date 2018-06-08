@@ -87,19 +87,16 @@
   }
 }
 
+.sidebar-toggle {
+  height: 42px;
+  width: 45px;
+  background: url(../img/icons/sidebar-toggle.svg) center no-repeat;
+  border: 1px solid $border-color;
+  margin-right: 15px;
+  transition: border-color 300ms;
 
-@media(max-width: $screen-md-max) {
-  .sidebar-toggle {
-    height: 42px;
-    width: 45px;
-    background: url(../img/icons/sidebar-toggle.svg) center no-repeat;
-    border: 1px solid $border-color;
-    margin-right: 15px;
-    transition: border-color 300ms;
-
-    &:hover,
-    &:focus {
-      border-color: darken($border-color, 20%);
-    }
+  &:hover,
+  &:focus {
+    border-color: darken($border-color, 20%);
   }
 }
