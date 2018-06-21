@@ -2,8 +2,6 @@
     min-height: 100vh;
 
     @media(min-width: $screen-lg-min) {
-        transition: padding-left 300ms ease-out;
-
         &:not(.toggled) {
             padding: 35px 40px 40px ($sidebar-width + 40px);
         }

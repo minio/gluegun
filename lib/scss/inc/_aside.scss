@@ -6,7 +6,6 @@
   left: 0;
   top: 0;
   background-color: $sidebar-bg;
-  transition: transform 250ms ease-out, box-shadow 250ms;
 
   @media(min-width: $screen-lg-min) {
     padding: 40px 40px 0;
