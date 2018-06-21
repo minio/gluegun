@@ -16,9 +16,9 @@
             </footer>
         </section>
 
-        <script src="vendors/jquery/jquery-3.3.1.min.js"></script>
-        <script src="vendors/highlight.js/highlight.min.js"></script>
-        <script src="vendors/clipboard.js/clipboard.min.js"></script>
+        <script src="/<%=@site_map['Output']%>/vendors/jquery/jquery-3.3.1.min.js"></script>
+        <script src="/<%=@site_map['Output']%>/vendors/highlight.js/highlight.min.js"></script>
+        <script src="/<%=@site_map['Output']%>/vendors/clipboard.js/clipboard.min.js"></script>
 
         <%- if !@site_map['Plugins'].nil? -%>
             <%- @site_map['Plugins'].each do |categories| -%>
@@ -108,6 +108,6 @@
             <%- end -%>
         <%- end -%>
 
-        <script src="js/gluegun.min.js"></script>
+        <script src="/<%=@site_map['Output']%>/js/gluegun.min.js"></script>
     </body>
 </html>

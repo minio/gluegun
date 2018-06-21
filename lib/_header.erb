@@ -19,14 +19,14 @@
                 <%- end -%>
 
                 <a href="<%= doc_link -%>" class="doc-actions__item doc-actions__item--web">
-                    <img src="img/icons/edit.svg" alt="">
+                    <img src="/<%=@site_map['Output']%>/img/icons/edit.svg" alt="">
                     <span>Suggest an Edit</span>
                 </a>
 
                 <% if !@site_map['Language'].nil? %>
                     <div class="dropdown">
                         <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
-                            <img src="img/icons/translate.svg" alt="">
+                            <img src="/<%=@site_map['Output']%>/img/icons/translate.svg" alt="">
                             <span>Translation</span>
                         </a>
 
