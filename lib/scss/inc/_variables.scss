@@ -13,6 +13,11 @@ $border-color: #f0f0f0;
 $border-inverse-color: #2f2f2f;
 $muted-bg: #f9f9f9;
 $text-muted-color: #777;
+$color-primary: #03A9F4;
+$color-success: #32c787;
+$color-warning: #ffc721;
+$color-danger: #ff6b68;
+
 
 // Colors
 $black: #000;
@@ -91,5 +96,11 @@ $dropdown-item-color: $text-muted-color;
 
 // Footer text color
 $footer-text-color: $text-muted-color;
-$footer-widget-bg: #03A9F4;
+$footer-widget-bg: $color-primary;
 $footer-widget-color: $white;
+
+
+// Buttons
+$button-default-bg: $muted-bg;
+$button-default-color: #333;
+$button-box-shadow: 0 2px 3px 0 rgba($black ,0.12);

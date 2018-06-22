@@ -1,0 +1,45 @@
+.button {
+  padding: 11px 13px 10px;
+  font-size: $font-size-base - 2;
+  border-radius: 2px;
+  line-height: 100%;
+  transition: background-color 300ms;
+  background-color: $button-default-bg;
+  color: $button-default-color;
+  text-align: center;
+  box-shadow: $button-box-shadow;
+
+  &:not(.button--block) {
+    display: inline-block;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($button-default-bg, 5%);
+    color: $button-default-color;
+  }
+}
+
+.button--block {
+  display: block;
+}
+
+$button-variants: (
+        primary: $color-primary,
+        success: $color-success,
+        warning: $color-warning,
+        danger: $color-danger
+);
+
+@each $variant, $color in $button-variants {
+  .button--#{$variant} {
+    background-color: $color;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: darken($color, 5%);
+    }
+  }
+}
