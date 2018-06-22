@@ -1,3 +1,14 @@
+// Transform - Rotate
+@mixin rotate($degrees) {
+  transform: rotate($degrees);
+}
+
+// Transition
+@mixin transition($transition, $transition-duration) {
+  transition: $transition;
+  transition-duration: $transition-duration;
+}
+
 // Placeholder
 @mixin placeholder {
   &::-webkit-input-placeholder { @content }
