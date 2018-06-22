@@ -35,19 +35,19 @@
                                                     <%- end -%>
                                                     <%= "<%- if defined?(key2) && key2['Slug'] === '" + value2['Slug'] + "'-\%\>" -%>
 
-                                                        <a href="<%=value2["Slug"]%>.html" class="doc-link__active">
+                                                        <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html" class="doc-link__active">
                                                             <%= value2.keys[0] -%>
                                                         </a>
                                                     <%= "<%- elsif !defined?(key2) && first_link -\%\>" -%>
 
-                                                        <a href="<%=value2["Slug"]%>.html" class="doc-link__active">
+                                                        <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html" class="doc-link__active">
                                                             <%= value2.keys[0] -%>
                                                         </a>
                                                         <%= "<%- first_link = false -\%\>" -%>
                                                         
                                                     <%= "<%- else -\%\>" -%>
 
-                                                        <a href="<%=value2["Slug"]%>.html">
+                                                        <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html">
                                                             <%= value2.keys[0] -%>
                                                         </a>
                                                     <%= "<%- end -\%\>" -%>
