@@ -546,8 +546,19 @@ textarea {
 .doc-actions__item--select {
   background: #fff url(../img/icons/select.svg) no-repeat right 10px center; }
 
-@media (max-width: 1199px) {
-  .doc-actions__item--web {
+@media (min-width: 991px) {
+  .doc-actions__edit .dropdown__menu {
+    min-width: 300px;
+    padding: 25px; }
+    .doc-actions__edit .dropdown__menu > ol {
+      font-size: 16px;
+      padding: 0 0 0 25px;
+      margin: 0 0 20px 0; }
+      .doc-actions__edit .dropdown__menu > ol > li {
+        margin-bottom: 10px; } }
+
+@media (max-width: 767px) {
+  .doc-actions__edit {
     display: none; } }
 
 .sidebar-toggle {

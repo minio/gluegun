@@ -81,8 +81,25 @@
   background: $white url(../img/icons/select.svg) no-repeat right 10px center;
 }
 
-.doc-actions__item--web {
-  @media(max-width: $screen-md-max) {
+.doc-actions__edit {
+  @media(min-width: $screen-sm-max) {
+    .dropdown__menu {
+      min-width: 300px;
+      padding: 25px;
+
+      & > ol {
+        font-size: $font-size-base - 2;
+        padding: 0 0 0 25px;
+        margin: 0 0 20px 0;
+
+        & > li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  @media(max-width: $screen-xs-max) {
     display: none;
   }
 }
