@@ -312,7 +312,8 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #fff; }
+  background-color: #fff;
+  color: #000; }
 
 a {
   color: #2d91e6; }
@@ -323,15 +324,18 @@ a {
 
 p {
   margin: 0 0 20px; }
-  p code {
-    display: inline-block;
-    background-color: #f8f8f8;
-    padding: 5px 15px;
-    font-size: 16px;
-    margin: 0 10px;
-    position: relative;
-    top: -2px;
-    white-space: pre; }
+
+p code,
+a code {
+  display: inline-block;
+  background-color: #f4f4f4;
+  padding: 5px 15px;
+  font-size: 16px;
+  margin: 0 5px;
+  position: relative;
+  top: -2px;
+  white-space: pre-line;
+  color: #000; }
 
 h1 {
   font-size: 30.6px; }
@@ -353,11 +357,12 @@ h6 {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 25px 0 12px 0;
-  font-weight: normal; }
+  font-weight: normal;
+  color: #000; }
 
 pre {
   position: relative;
-  background-color: #f8f8f8;
+  background-color: #f4f4f4;
   padding: 25px 30px;
   margin: 0 0 20px;
   font-size: 17px;
@@ -388,13 +393,10 @@ blockquote {
 .content {
   min-height: 100vh; }
   @media (min-width: 1200px) {
-    .content {
-      -webkit-transition: padding-left 300ms ease-out;
-      transition: padding-left 300ms ease-out; }
-      .content:not(.toggled) {
-        padding: 35px 40px 40px 390px; }
-      .content.toggled {
-        padding: 35px 40px; } }
+    .content:not(.toggled) {
+      padding: 35px 40px 40px 390px; }
+    .content.toggled {
+      padding: 35px 40px; } }
   @media (min-width: 768px) and (max-width: 1199px) {
     .content {
       padding: 40px; } }
@@ -520,11 +522,7 @@ textarea {
   overflow: auto;
   left: 0;
   top: 0;
-  background-color: #151515;
-  -webkit-transition: -webkit-transform 250ms ease-out, -webkit-box-shadow 250ms;
-  transition: -webkit-transform 250ms ease-out, -webkit-box-shadow 250ms;
-  transition: transform 250ms ease-out, box-shadow 250ms;
-  transition: transform 250ms ease-out, box-shadow 250ms, -webkit-transform 250ms ease-out, -webkit-box-shadow 250ms; }
+  background-color: #151515; }
   @media (min-width: 1200px) {
     .sidebar {
       padding: 40px 40px 0; }
@@ -820,7 +818,7 @@ th, td {
   top: 0;
   right: 0;
   background-color: #fff;
-  border: 5px solid #f8f8f8;
+  border: 5px solid #f4f4f4;
   font-size: 0.75rem;
   padding: 0.25rem 0.65rem;
   font-family: "Roboto", sans-serif;
