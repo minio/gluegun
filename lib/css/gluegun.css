@@ -1,6 +1,6 @@
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
-   ========================================================================== */
+ ======================================================================= */
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -422,6 +422,55 @@ textarea {
   color: inherit;
   font-family: inherit; }
 
+.button {
+  padding: 11px 13px 10px;
+  font-size: 16px;
+  border-radius: 2px;
+  line-height: 100%;
+  -webkit-transition: background-color 300ms;
+  transition: background-color 300ms;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12); }
+  .button:not(.button--block) {
+    display: inline-block; }
+  .button:hover, .button:focus {
+    background-color: #ececec;
+    color: #333; }
+
+.button--block {
+  display: block; }
+
+.button--primary {
+  background-color: #03A9F4;
+  color: #fff; }
+  .button--primary:hover, .button--primary:focus {
+    color: #fff;
+    background-color: #0398db; }
+
+.button--success {
+  background-color: #32c787;
+  color: #fff; }
+  .button--success:hover, .button--success:focus {
+    color: #fff;
+    background-color: #2db379; }
+
+.button--warning {
+  background-color: #ffc721;
+  color: #fff; }
+  .button--warning:hover, .button--warning:focus {
+    color: #fff;
+    background-color: #ffc108; }
+
+.button--danger {
+  background-color: #ff6b68;
+  color: #fff; }
+  .button--danger:hover, .button--danger:focus {
+    color: #fff;
+    background-color: #ff524f; }
+
 .header {
   width: 100%;
   -webkit-box-align: end;
@@ -500,8 +549,19 @@ textarea {
 .doc-actions__item--select {
   background: #fff url(../img/icons/select.svg) no-repeat right 10px center; }
 
-@media (max-width: 1199px) {
-  .doc-actions__item--web {
+@media (min-width: 991px) {
+  .doc-actions__edit .dropdown__menu {
+    min-width: 300px;
+    padding: 25px; }
+    .doc-actions__edit .dropdown__menu > ol {
+      font-size: 16px;
+      padding: 0 0 0 25px;
+      margin: 0 0 20px 0; }
+      .doc-actions__edit .dropdown__menu > ol > li {
+        margin-bottom: 10px; } }
+
+@media (max-width: 767px) {
+  .doc-actions__edit {
     display: none; } }
 
 .sidebar-toggle {
