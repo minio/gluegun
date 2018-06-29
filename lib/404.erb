@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= @site_map['Site'] %></title>
+
+    <link href="/<%=@site_map['Output']%>/css/gluegun.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-error">
+      <div class="page-error__inner">
+        <h2>404</h2>
+        <p>I have no idea where that document is, sorry. Are you sure you typed in the correct URL?</p>
+      </div>
+      <div class="page-error__links">
+        <a href="javascript:history.back()"><img src="/<%=@site_map['Output']%>/img/icons/arrow-left.svg" alt=""> Previous page</a>
+        <a href="/"><img src="/<%=@site_map['Output']%>/img/icons/arrow-up.svg" alt=""> Go to home</a>
+      </div>
+    </div>
+  </body>
+</html>
