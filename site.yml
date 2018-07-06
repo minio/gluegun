@@ -1,28 +1,283 @@
-Site: "Gluegun"
+Site: "Minio Docs"
 Output: "docs"
-Logo: "https://minio.io/img/logo/wordmark_white.svg"
+Logo: "https://minio.io/img/logo/wordmark_black.svg"
 
 Language:
-  - Chinese: https://gluegun.minio.io/cn
-  - Japanese: https://gluegun.minio.io/jp
+  - Chinese: https://docs.minio.io/cn
 
 Plugins:
   - Algolia:
-      apiKey: "ALGOLIA_TOKEN"
-      index: "INDEX_NAME"
-  - Google Analytics: "UA-XXXXX-Y"
-  - Mixpanel: "MIXPANEL_TOKEN"
+      apiKey: "0ba0d26da4d1483f96c03fe508304a64"
+      index: "minio"
+  - Google Analytics: "UA-56860620-7"
   - Footer Widget:
       Label: "Talk to community"
-      Link: "/"
+      Link: "https://slack.minio.io"
 
 Documents:
-  - Get Started:
-      - Gluegun Quick Start Guide:
-        Link: https://github.com/minio/gluegun/blob/master/README.md
-        Slug: gluegun-quick-start-guide
+  - Minio Server:
+      - Minio Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/README.md
+        Slug: minio-quickstart-guide
 
-  - Theming:
-      - Gluegun Theming Guide:
-        Link: https://github.com/minio/gluegun/blob/master/README.md
-        Slug: gluegun-theming-guide
+      - Minio Docker Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/docker/README.md
+        Slug: minio-docker-quickstart-guide
+
+      - Minio Erasure Code Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/erasure/README.md
+        Slug: minio-erasure-code-quickstart-guide
+
+      - Distributed Minio Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/distributed/README.md
+        Slug: distributed-minio-quickstart-guide
+
+      - How to secure access to Minio server with TLS:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/tls/README.md
+        Slug: how-to-secure-access-to-minio-server-with-tls
+
+      - Minio Bucket Notification Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/bucket/notifications/README.md
+        Slug: minio-bucket-notification-guide
+
+      - Minio Server Limits Per Tenant:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/minio-limits.md
+        Slug: minio-server-limits-per-tenant
+
+      - Minio Server Configuration Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/config/README.md
+        Slug: minio-server-configuration-guide
+
+      - Multi-tenant Minio Deployment Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/multi-tenancy/README.md
+        Slug: multi-tenant-minio-deployment-guide
+
+      - Minio Gateway for Azure:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/gateway/azure.md
+        Slug: minio-gateway-for-azure
+
+      - Minio Gateway for GCS:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/gateway/gcs.md
+        Slug: minio-gateway-for-gcs
+
+      - Minio Gateway for NAS:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/gateway/nas.md
+        Slug: minio-gateway-for-nas
+
+      - Minio Large Bucket Support Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/large-bucket/README.md
+        Slug: minio-large-bucket-support-quickstart-guide
+
+      - Minio Disk Cache Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/disk-caching/README.md
+        Slug: minio-disk-cache-guide
+
+  - Minio Client:
+      - Minio Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/mc/master/README.md
+        Slug: minio-client-quickstart-guide
+
+      - Minio Client Complete Guide:
+        Link: https://raw.githubusercontent.com/minio/mc/master/docs/minio-client-complete-guide.md
+        Slug: minio-client-complete-guide
+
+  - Minio SDKs:
+      - JavaScript Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio-js/master/README.md
+        Slug: javascript-client-quickstart-guide
+
+      - JavaScript Client API Reference:
+        Link: https://raw.githubusercontent.com/minio/minio-js/master/docs/API.md
+        Slug: javascript-client-api-reference
+
+      - Java Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio-java/master/README.md
+        Slug: java-client-quickstart-guide
+
+      - Java Client API Reference:
+        Link: https://raw.githubusercontent.com/minio/minio-java/master/docs/API.md
+        Slug: java-client-api-reference
+
+      - Python Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio-py/master/README.md
+        Slug: python-client-quickstart-guide
+
+      - Python Client API Reference:
+        Link: https://raw.githubusercontent.com/minio/minio-py/master/docs/API.md
+        Slug: python-client-api-reference
+
+      - Golang Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio-go/master/README.md
+        Slug: golang-client-quickstart-guide
+
+      - Golang Client API Reference:
+        Link: https://raw.githubusercontent.com/minio/minio-go/master/docs/API.md
+        Slug: golang-client-api-reference
+
+      - .NET Client Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio-dotnet/master/README.md
+        Slug: dotnet-client-quickstart-guide
+
+      - .NET Client API Reference:
+        Link: https://raw.githubusercontent.com/minio/minio-dotnet/master/Docs/API.md
+        Slug: dotnet-client-api-reference
+
+  - Full Examples:
+      - JavaScript Shopping App:
+        Link: https://raw.githubusercontent.com/minio/minio-js-store-app/master/README.md
+        Slug: javascript-shopping-app
+
+      - Java Photo API Service:
+        Link: https://raw.githubusercontent.com/minio/minio-java-rest-example/master/README.md
+        Slug: java-photo-api-service
+
+      - Go Music Player App:
+        Link: https://raw.githubusercontent.com/minio/minio-go-media-player/master/README.md
+        Slug: go-music-player-app
+
+      - Android Photo App:
+        Link: https://raw.githubusercontent.com/minio/android-photo-app/master/README.md
+        Slug: android-photo-app
+
+      - Swift Photo App:
+        Link: https://raw.githubusercontent.com/minio/swift-photo-app/master/README.md
+        Slug: swift-photo-app
+
+      - RoR Resume Uploader App:
+        Link: https://raw.githubusercontent.com/minio/ror-resumeuploader-app/master/README.md
+        Slug: ror-resume-uploader-app
+
+  - Cookbook:
+      - S3cmd with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/s3cmd-with-minio.md
+        Slug: s3cmd-with-minio
+
+      - AWS CLI with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-cli-with-minio.md
+        Slug: aws-cli-with-minio
+
+      - restic with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/restic-with-minio.md
+        Slug: restic-with-minio
+
+      - Store MySQL Backups in Minio:
+        Link: https://github.com/minio/cookbook/blob/master/docs/store-mysql-backups-in-minio.md
+        Slug: store-mysql-backups-in-minio
+
+      - Store MongoDB Backups in Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/store-mongodb-backups-in-minio.md
+        Slug: store-mongodb-backups-in-minio
+
+      - Store PostgreSQL Backups in Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/store-postgresql-backups-in-minio.md
+        Slug: store-postgresql-backups-in-minio
+
+      - Setup Caddy proxy with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/setup-caddy-proxy-with-minio.md
+        Slug: setup-caddy-proxy-with-minio
+
+      - Setup Nginx proxy with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/setup-nginx-proxy-with-minio.md
+        Slug: setup-nginx-proxy-with-minio
+
+      - Store Apache Logs into Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aggregate-apache-logs-with-fluentd-and-minio.md
+        Slug: aggregate-apache-logs-with-fluentd-and-minio
+
+      - Rclone with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/rclone-with-minio.md
+        Slug: rclone-with-minio-server
+
+      - Running Deis Workflow with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/running-deis-workflow-with-minio.md
+        Slug: running-deis-workflow-with-minio
+
+      - Setup Apache HTTP proxy with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/setup-apache-http-proxy-with-minio.md
+        Slug: setup-apache-http-proxy-with-minio-server
+
+      - Upload files from browser using pre-signed URLs:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/presigned-put-upload-via-browser.md
+        Slug: upload-files-from-browser-using-pre-signed-urls
+
+      - How to run Minio in FreeNAS?:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/running-minio-in-freenas.md
+        Slug: how-to-run-minio-in-freenas
+
+      - How to use Cyberduck with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-cyberduck-with-minio.md
+        Slug: how-to-use-cyberduck-with-minio
+
+      - How to use AWS SDK for PHP with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-php-with-minio.md
+        Slug: how-to-use-aws-sdk-for-php-with-minio-server
+
+      - How to use AWS SDK for Ruby with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-ruby-with-minio.md
+        Slug: how-to-use-aws-sdk-for-ruby-with-minio-server
+
+      - How to use AWS SDK for Python with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-python-with-minio.md
+        Slug: how-to-use-aws-sdk-for-python-with-minio-server
+
+      - How to use Mountain Duck with Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-mountainduck-with-minio.md
+        Slug: how-to-use-mountain-duck-with-minio
+
+      - How to use AWS SDK for JavaScript with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-javascript-with-minio.md
+        Slug: how-to-use-aws-sdk-for-javascript-with-minio-server
+
+      - How to run multiple Minio servers with Træfɪk:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/multiple-minio-servers-with-traefik.md
+        Slug: how-to-run-multiple-minio-servers-with-traef-k
+
+      - How to use AWS SDK for Go with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-go-with-minio.md
+        Slug: how-to-use-aws-sdk-for-go-with-minio-server
+
+      - How to use AWS SDK for Java with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-java-with-minio.md
+        Slug: how-to-use-aws-sdk-for-java-with-minio-server
+
+      - How to use Paperclip with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-paperclip-with-minio.md
+        Slug: how-to-use-paperclip-with-minio-server
+
+      - How to use AWS SDK for .NET with Minio Server:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-dotnet-with-minio.md
+        Slug: how-to-use-aws-sdk-for-net-with-minio-server
+
+      - How to use Minio's server-side-encryption with aws-cli:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-minio-server-side-encryption-with-aws-cli.md
+        Slug: how-to-use-minio-s-server-side-encryption-with-aws-cli
+
+  - Related Projects:
+      - Generate Let's Encrypt certificate using Certbot for Minio:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/generate-lets-encypt-certificate-using-certbot-for-minio.md
+        Slug: generate-let-s-encypt-certificate-using-concert-for-minio
+
+      - How to install Golang?:
+        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-install-golang.md
+        Slug: how-to-install-golang
+
+  - Minio Deployment:
+      - Minio Deployment Quickstart Guide:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/orchestration/README.md
+        Slug: minio-deployment-quickstart-guide
+
+      - Deploy Minio on Docker Swarm:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/orchestration/docker-swarm/README.md
+        Slug: deploy-minio-on-docker-swarm
+
+      - Deploy Minio on Kubernetes:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/orchestration/kubernetes/README.md
+        Slug: deploy-minio-on-kubernetes
+
+      - Deploy Minio on DC/OS:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/orchestration/dcos/README.md
+        Slug: deploy-minio-on-dc-os
+
+      - Deploy Minio on Docker Compose:
+        Link: https://raw.githubusercontent.com/minio/minio/master/docs/orchestration/docker-compose/README.md
+        Slug: deploy-minio-on-docker-compose
