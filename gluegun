@@ -27,6 +27,7 @@ when "generate"
     site_config = ARGV[1].dup
   end
   Gluegun::Gluegun.generate_sidebar site_config
+  Gluegun::Gluegun.gluegun_generate_404 site_config
   Gluegun::Gluegun.gluegun_generate_pages site_config
   Gluegun::Gluegun.gluegun_generate_index site_config
 else

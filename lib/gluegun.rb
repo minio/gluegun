@@ -103,6 +103,27 @@ module Gluegun
       end
     end
 
+    def self.gluegun_generate_404(site_config_file)
+      config_file = get_config_file(site_config_file)
+      erb_file = '404.html'
+      @site_map = YAML.load(open(config_file).read)
+      dest_path = @site_map['Output']
+      if !dest_path.nil?
+        FileUtils.mkdir_p(dest_path) unless File.exist?(dest_path)
+          File.open(File.join(dest_path, erb_file), "w+") do |f|
+            # Set nil to "-" to activate "<%-" and "-%>" characters
+            # for non-printing lines in erb file.
+            # This will prevent extraneous newlines and indentations
+            # in the generated html file.
+            print "Generating 404 file..."
+            f.puts(ERB.new(File.read('lib/404.erb'), nil, '-').result(binding))
+            puts "DONE"
+        end
+      else
+        puts "Missing destination directory in site.yml file."
+      end
+    end
+
     def self.generate_sidebar(site_config_file)
       config_file = get_config_file(site_config_file)
       erb_file = '_sidebar.erb'
