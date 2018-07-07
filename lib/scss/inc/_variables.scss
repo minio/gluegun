@@ -54,10 +54,15 @@ $headings-color: $black !default;
 $sidebar-z-index: 10 !default;
 $sidebar-width: 350px !default;
 $sidebar-bg: #151515 !default;
+$sidebar-border-color: $sidebar-bg !default;
 $doclink-header-color: $white !default;
 $doclink-color: rgba($white, 0.75) !default;
 $doclink-hover-color: rgba($white, 0.875) !default;
 $doclink-active-color: $white !default;
+$doclink-category-border-color: $border-inverse-color !default;
+$sidebar-close-hover-bg: rgba($white, 0.1) !default;
+$sidebar-close-fill: $white !default;
+$doclink-toggle-icon-stroke: $white !default;
 
 
 // Header
