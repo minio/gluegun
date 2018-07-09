@@ -97,14 +97,14 @@
       opacity: 1;
     }
 
-    .doc-link__exapnd {
+    .doc-link__expand {
       transform: scale(0);
       opacity: 0;
     }
   }
 }
 
-.doc-link__exapnd,
+.doc-link__expand,
 .doc-link__collapse {
   pointer-events: none;
   width: 11px;
