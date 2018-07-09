@@ -10,6 +10,7 @@ var autoprefixer = require('autoprefixer');
 var cssmin = require('gulp-cssmin');
 var runSequence = require('run-sequence');
 
+
 // Paths
 var files = {
     scss:       './lib/scss/**/*.scss',
@@ -32,7 +33,7 @@ gulp.task('sass', function () {
 
 
 // Post CSS
-gulp.task('postcss', function () {
+gulp.task('postcss', ['sass'], function () {
     var plugins = [
         autoprefixer({browsers: ['last 2 version']})
     ];
@@ -43,7 +44,7 @@ gulp.task('postcss', function () {
 
 
 // Minify CSS
-gulp.task('cssmin',  function () {
+gulp.task('cssmin', ['postcss'], function () {
     gulp.src(files.css)
         .pipe(cssmin({
             keepSpecialComments: 0
@@ -53,35 +54,35 @@ gulp.task('cssmin',  function () {
 });
 
 
+// Copy CSS
+gulp.task('copy-css', ['cssmin'], function () {
+    gulp.src([files.cssMin, files.css])
+        //.pipe(wait(500))
+        .pipe(gulp.dest('./docs/css'));
+});
+
+
+
 // Build CSS
 gulp.task('build-style', function () {
     runSequence(
         'sass',
         'postcss',
-        'cssmin'
+        'cssmin',
+        'copy-css'
     )
 });
 
 
-// Copy CSS
-gulp.task('copy-css', ['build-style'], function () {
-    gulp.src([files.cssMin, files.css])
-        .pipe(gulp.dest('./docs/css'));
-});
-
-
-// Minify JS
-gulp.task('minify-js', function(){
+// Minify and Copy JS
+gulp.task('copy-js', function(){
     gulp.src(files.js)
         .pipe(minifyjs())
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest('./lib/js/'))
-});
+        .pipe(gulp.dest('./docs/js'));
 
-
-// Copy JS
-gulp.task('copy-js', function () {
-    gulp.src([files.js, files.jsMin])
+    gulp.src([files.js])
         .pipe(gulp.dest('./docs/js'));
 });
 
@@ -104,6 +105,16 @@ gulp.task('copy-vendors', function () {
 gulp.task('watch', function() {
     gulp.watch(files.scss, ['build-style']);
     gulp.watch(files.cssMin, ['copy-css']);
-    gulp.watch(files.js, ['minify-js']);
-    gulp.watch(files.jsMin, ['copy-js']);
+    gulp.watch(files.js, ['copy-js']);
+});
+
+
+// Build
+gulp.task('default', ['build-style'], function () {
+    runSequence(
+        'copy-css',
+        'copy-js',
+        'copy-img',
+        'copy-vendors'
+    )
 });

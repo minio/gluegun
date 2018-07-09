@@ -1,5 +1,9 @@
     <aside class="sidebar">
-        <a href="" class="sidebar__close"></a>
+        <a href="" class="sidebar__close">
+            <svg class="sidebar__close__icon">
+                <polygon points="15.8333324 5.34166622 14.6583325 4.16666642 9.99999942 8.82499958 5.34166622 4.16666642 4.16666642 5.34166622 8.82499958 9.99999942 4.16666642 14.6583325 5.34166622 15.8333324 9.99999942 11.1749992 14.6583325 15.8333324 15.8333324 14.6583325 11.1749992 9.99999942"></polygon>
+            </svg>
+        </a>
 
         <a href="/" class="logo">
             <img src="<%= @site_map['Logo'] %>" alt="">
@@ -23,6 +27,15 @@
                         <%= "<%- end -\%\>" -%>
 
                             <li class='doc-link__category <%= "<%= active_keywords[0] -\%\>" -%>'>
+                                <svg class="doc-link__expand">
+                                    <path d="M1.5,5.5 L11.5,5.5"></path>
+                                    <path d="M6.48413086,0.522338867 L6.48413086,10.5223389"></path>
+                                </svg>
+
+                                <svg class="doc-link__collapse">
+                                    <path d="M1.5,2.5 L11.5,2.5"></path>
+                                </svg>
+
                                 <a href="" class="doc-link__header">
                                     <%= key -%>
                                 </a>

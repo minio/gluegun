@@ -7,6 +7,10 @@
   top: 0;
   background-color: $sidebar-bg;
 
+  &:not(.toggled) {
+    border-right: 1px solid $sidebar-border-color;
+  }
+
   @media(min-width: $screen-lg-min) {
     padding: 40px 40px 0;
 
@@ -40,15 +44,23 @@
     right: 20px;
     height: 40px;
     width: 40px;
-    background: url(../img/icons/close.svg) no-repeat center;
     border-radius: 50%;
-    transition: border-color 300ms;
     border: 1px solid transparent;
+    transition: background-color 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
-      background-color: rgba($white, 0.05);
+      background-color: $sidebar-close-hover-bg;
     }
   }
+}
+
+.sidebar__close__icon {
+  fill: $sidebar-close-fill;
+  width: 20px;
+  height: 20px;
 }
 
 .logo {
@@ -70,41 +82,51 @@
   position: relative;
 
   &:not(:last-child) {
-    border-bottom: 1px solid $border-inverse-color;
+    border-bottom: 1px solid $doclink-category-border-color;
   }
 
   &:before,
   &:after {
     content: '';
-    position: absolute;
-    top: 30px;
-    right: 5px;
-    width: 11px;
-    height: 11px;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 300ms;
-  }
 
-  &:before {
-    background-image: url(../img/icons/expand.svg);
   }
-
-  &:after {
-    background-image: url(../img/icons/collapse.svg);
-    transform: scale(0);
-  }
-
 
   &.toggled {
-    &:after {
+    .doc-link__collapse {
       transform: scale(1);
+      opacity: 1;
     }
 
-    &:before {
+    .doc-link__expand {
       transform: scale(0);
+      opacity: 0;
     }
   }
+}
+
+.doc-link__expand,
+.doc-link__collapse {
+  pointer-events: none;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  top: 30px;
+  right: 5px;
+  transition: transform 200ms, opacity 200ms;
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > path {
+    stroke: $doclink-toggle-icon-stroke;
+  }
+}
+
+.doc-link__collapse {
+  transform: scale(0);
+  opacity: 0;
+  margin-top: 3px;
 }
 
 .doc-link__items {
