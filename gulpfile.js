@@ -74,7 +74,7 @@ gulp.task('build-style', function () {
 });
 
 
-// Minify JS
+// Minify and Copy JS
 gulp.task('copy-js', function(){
     gulp.src(files.js)
         .pipe(minifyjs())
@@ -105,8 +105,7 @@ gulp.task('copy-vendors', function () {
 gulp.task('watch', function() {
     gulp.watch(files.scss, ['build-style']);
     gulp.watch(files.cssMin, ['copy-css']);
-    gulp.watch(files.js, ['minify-js']);
-    gulp.watch(files.jsMin, ['copy-js']);
+    gulp.watch(files.js, ['copy-js']);
 });
 
 
