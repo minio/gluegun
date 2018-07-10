@@ -3,7 +3,7 @@ Output: "cn"
 Logo: "https://minio.io/img/logo/wordmark_black.svg"
 
 Language:
-  - English: https://docs.minio.io
+  - English: /
 
 Plugins:
   - Algolia:
