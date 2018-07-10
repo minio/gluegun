@@ -13,12 +13,16 @@ $font-weight-bold: 600;
 $h1-font-size: ($font-size-base - 1) * 1.65;
 $h2-font-size: ($font-size-base - 1) * 1.4;
 $headings-color: #000;
+$headings-font-weight: $font-weight-bold;
 
 
 // Sidebar
 $sidebar-bg: #fff;
 $sidebar-border-color: $border-color;
+$sidebar-font-size: $font-size-base - 0.7;
 $doclink-header-color: $headings-color;
+$doclink-header-font-weight: $font-weight-bold;
+$doclink-header-text-transform: uppercase;
 $doclink-color: #707070;
 $doclink-hover-color: darken($doclink-color, 30%);
 $doclink-active-color: #000;

@@ -64,7 +64,7 @@ gulp.task('copy-css', ['cssmin'], function () {
 
 
 // Build CSS
-gulp.task('default', function () {
+gulp.task('build-style', function () {
     runSequence(
         'sass',
         'postcss',
