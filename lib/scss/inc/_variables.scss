@@ -35,8 +35,8 @@ $link-color: #2d91e6 !default;
 
 // Font
 $font-size-base: 18px !default;
-$font-family: 'Roboto', sans-serif !default;
-$font-weight-bold: 500 !default;
+$font-family: 'Source Sans Pro', sans-serif !default;
+$font-weight-bold: 600 !default;
 $font-weight-base: normal;
 
 
@@ -48,6 +48,7 @@ $h4-font-size: $font-size-base * 1.1 !default;
 $h5-font-size: $font-size-base * 0.9 !default;
 $h6-font-size: $font-size-base * 0.7 !default;
 $headings-color: $black !default;
+$headings-font-weight: $font-weight-base !default;
 
 
 // Sidebar
@@ -55,7 +56,10 @@ $sidebar-z-index: 10 !default;
 $sidebar-width: 350px !default;
 $sidebar-bg: #151515 !default;
 $sidebar-border-color: $sidebar-bg !default;
+$sidebar-font-size: $font-size-base - 2 !default;
 $doclink-header-color: $white !default;
+$doclink-header-font-weight: $font-weight-base !default;
+$doclink-header-text-transform: none !default;
 $doclink-color: rgba($white, 0.75) !default;
 $doclink-hover-color: rgba($white, 0.875) !default;
 $doclink-active-color: $white !default;
