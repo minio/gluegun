@@ -80,6 +80,12 @@ Documents:
         Link: https://github.com/minio/minio/blob/master/docs/federation/lookup/README.md
         Slug: minio-federation-quickstart-guide
 
+      - Minio KMS Quickstart Guide:
+        Link: https://github.com/minio/minio/blob/master/docs/kms/README.md
+
+      - Minio Select API Quickstart Guide:
+        Link: https://github.com/minio/minio/blob/master/docs/select/README.md
+
   - Minio Client:
       - Minio Client Quickstart Guide:
         Link: https://raw.githubusercontent.com/minio/mc/master/README.md
