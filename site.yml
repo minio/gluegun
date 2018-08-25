@@ -16,6 +16,11 @@ Plugins:
       Label: "Talk to community"
       Link: "/"
 
+Rules:
+  Filter:
+    - s?\[\!\[Slack\].*$??
+    - s?\[\!\[Gitter\].*$??
+
 Documents:
   - Get Started:
       - Gluegun Quick Start Guide:

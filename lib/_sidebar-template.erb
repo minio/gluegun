@@ -41,7 +41,7 @@
                                 </a>
                                 <ul class="doc-link__items" style='<%= "<%= active_keywords[1] -\%\>" -%>'>
                                     <%- value.each do |value2| -%>
-                                        <%- if !value2["Link"].nil? && reveal(raw(value2["Link"])) -%>
+                                        <%- if !value2["Link"].nil? && is_link_valid(raw(value2["Link"])) -%>
                                                 <li>
                                                     <%- if !value2["Slug"] -%>
                                                         <%- value2["Slug"] = get_slug(value2) -%>
