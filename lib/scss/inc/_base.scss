@@ -1,6 +1,5 @@
 * {
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
   &:focus,
@@ -22,7 +21,8 @@ body {
 a {
   color: $link-color;
 
-  &, &:hover {
+  &,
+  &:hover {
     text-decoration: none;
   }
 
@@ -48,14 +48,36 @@ a code {
   color: $code-color;
 }
 
-h1 { font-size: $h1-font-size; }
-h2 { font-size: $h2-font-size; }
-h3 { font-size: $h3-font-size; }
-h4 { font-size: $h4-font-size; }
-h5 { font-size: $h5-font-size; }
-h6 { font-size: $h6-font-size; }
+h1 {
+  font-size: $h1-font-size;
+}
+h2 {
+  font-size: $h2-font-size;
+}
+h3 {
+  font-size: $h3-font-size;
+}
+h4 {
+  font-size: $h4-font-size;
+}
+h5 {
+  font-size: $h5-font-size;
+}
+h6 {
+  font-size: $h6-font-size;
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2 {
+  margin: 25px 0 12px 0;
+  font-weight: $headings-font-weight;
+  color: $headings-alt-color;
+}
+
+h3,
+h4,
+h5,
+h6 {
   margin: 25px 0 12px 0;
   font-weight: $headings-font-weight;
   color: $headings-color;
@@ -66,8 +88,9 @@ pre {
   background-color: $pre-bg;
   padding: 25px 30px;
   margin: 0 0 20px;
-  font-size: $font-size-base - 1;
-  overflow-x: auto;;
+  font-size: $font-size-base - 3;
+  line-height: 1.5;
+  overflow-x: auto;
 
   code {
     white-space: pre;
@@ -75,8 +98,8 @@ pre {
 }
 
 blockquote {
-  margin: 30px 0;
-  padding: 10px 30px;
+  margin: 15px 0;
+  padding: 0 15px;
   border-left: 3px solid $blockquote-bg;
 }
 
@@ -91,7 +114,7 @@ blockquote {
       max-width: 100%;
       height: auto;
 
-      @media(min-width: $screen-sm-min) {
+      @media (min-width: $screen-sm-min) {
         width: 50%;
       }
     }
