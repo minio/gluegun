@@ -2,26 +2,16 @@
 $text-muted-color: #606060;
 $border-color: #f0f0f0;
 
-
-// Font
-$font-size-base: 18px;
-$font-family: 'Source Sans Pro', sans-serif;
-$font-weight-bold: 600;
-
-
 // Headings
-$h1-font-size: ($font-size-base - 1) * 1.65;
-$h2-font-size: ($font-size-base - 1) * 1.4;
 $headings-color: #000;
-$headings-font-weight: $font-weight-bold;
-
+$headings-alt-color: #e6522c;
+$headings-font-weight: 500;
 
 // Sidebar
 $sidebar-bg: #fff;
 $sidebar-border-color: $border-color;
-$sidebar-font-size: $font-size-base - 0.7;
-$doclink-header-color: $headings-color;
-$doclink-header-font-weight: $font-weight-bold;
+$doclink-header-color: #e6522c;
+$doclink-header-font-weight: 500;
 $doclink-header-text-transform: uppercase;
 $doclink-color: #707070;
 $doclink-hover-color: darken($doclink-color, 30%);
@@ -31,10 +21,8 @@ $sidebar-close-fill: #000;
 $doclink-toggle-icon-stroke: #000;
 $sidebar-close-hover-bg: #f5f5f5;
 
-
 // Code
 $pre-bg: #f8f8f8;
-
 
 // Footer text color
 $footer-widget-bg: #e8846d;
