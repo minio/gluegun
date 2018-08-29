@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://github.com/minio/gluegun/blob/master/lib/img/Gluegun_icon_1024px.png" width="140px">
+</p>
+
 # Gluegun
 Gluegun glues markdown files to generate a beautiful documentation site.
  
