@@ -3,7 +3,7 @@
 
     @media(min-width: $screen-lg-min) {
         &:not(.toggled) {
-            padding: 35px 40px 40px ($sidebar-width + 40px);
+            padding: 35px 40px 40px $sidebar-width;
         }
 
         &.toggled {
