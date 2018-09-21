@@ -47,17 +47,19 @@ $headings-font-weight: $font-weight-bold !default;
 
 // Sidebar
 $sidebar-z-index: 10 !default;
-$sidebar-width: 350px !default;
-$sidebar-bg: #151515 !default;
+$sidebar-width: 320px !default;
+$sidebar-bg: $white !default;
 $sidebar-border-color: $sidebar-bg !default;
 $sidebar-font-size: $font-size-base - 2 !default;
-$doclink-header-color: $white !default;
+$doclink-header-color: $black !default;
 $doclink-header-font-weight: $font-weight-base !default;
-$doclink-header-text-transform: none !default;
-$doclink-color: rgba($white, 0.75) !default;
-$doclink-hover-color: rgba($white, 0.875) !default;
-$doclink-active-color: $white !default;
-$doclink-category-border-color: $border-inverse-color !default;
+$doclink-header-text-transform: uppercase !default;
+$doclink-color: #848484 !default;
+$doclink-hover-color: $black !default;
+$doclink-hover-bg: #f6f6f6 !default;
+$doclink-active-color: $headings-color !default;
+$doclink-active-before-bg: $black !default;
+$doclink-item-border-color: #e4e4e4 !default;
 $sidebar-close-hover-bg: rgba($white, 0.1) !default;
 $sidebar-close-fill: $white !default;
 $doclink-toggle-icon-stroke: $white !default;

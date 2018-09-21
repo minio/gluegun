@@ -2,7 +2,7 @@
   width: $sidebar-width;
   position: fixed;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   left: 0;
   top: 0;
   background-color: $sidebar-bg;
@@ -12,15 +12,12 @@
   }
 
   @media(min-width: $screen-lg-min) {
-    padding: 40px 40px 0;
-
     &.toggled {
       transform: translate3d(-($sidebar-width+20), 0, 0);
     }
   }
 
   @media(max-width: $screen-md-max) {
-    padding: 30px 30px 0;
     z-index: $sidebar-z-index;
 
     &:not(.toggled) {
@@ -30,6 +27,21 @@
     &.toggled {
       box-shadow: 5px 0 15px rgba($black, 0.15);
     }
+  }
+}
+
+.sidebar__inner {
+  height: 100%;
+  overflow: auto;
+
+  @media(min-width: $screen-lg-min) {
+    padding: 40px 60px 0 40px;
+    margin-right: -30px;
+  }
+
+  @media(max-width: $screen-md-max) {
+    padding: 30px 60px 0 30px;
+    margin-right: -30px;
   }
 }
 
@@ -78,83 +90,47 @@
   list-style: none;
 }
 
-.doc-link__category {
-  position: relative;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid $doclink-category-border-color;
-  }
-
-  &:before,
-  &:after {
-    content: '';
-
-  }
-
-  &.toggled {
-    .doc-link__collapse {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    .doc-link__expand {
-      transform: scale(0);
-      opacity: 0;
-    }
-  }
-}
-
-.doc-link__expand,
-.doc-link__collapse {
-  pointer-events: none;
-  width: 11px;
-  height: 11px;
-  position: absolute;
-  top: 30px;
-  right: 5px;
-  transition: transform 200ms, opacity 200ms;
-  transform-origin: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & > path {
-    stroke: $doclink-toggle-icon-stroke;
-  }
-}
-
-.doc-link__collapse {
-  transform: scale(0);
-  opacity: 0;
-  margin-top: 3px;
-}
-
 .doc-link__items {
-  padding: 0 0 15px 0;
+  padding: 0;
   list-style: none;
+  margin: 0 0 10px 2px;
   display: none;
+  border-left: 1px solid $doclink-item-border-color;
 
   .doc-link__active {
     color: $doclink-active-color;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 3px;
+      background-color: $doclink-active-before-bg;
+      left: -3px;
+      top: 0;
+      z-index: 1;
+    }
   }
 
   & > li {
     & > a {
       display: block;
-      transition: color 300ms;
+      transition: color 300ms, background-color 300ms;
       color: $doclink-color;
-      padding: 5px 0;
+      padding: 8px 15px;
       font-size: $sidebar-font-size;
 
       &:hover {
         color: $doclink-hover-color;
+        background-color: $doclink-hover-bg;
       }
     }
   }
 }
 
 .doc-link__header {
-  padding: 20px 30px 20px 0;
+  padding: 10px 30px 10px 0;
   display: block;
   font-weight: $doclink-header-font-weight;
   text-transform: $doclink-header-text-transform;
