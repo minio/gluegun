@@ -117,12 +117,14 @@
     & > a {
       display: block;
       transition: color 300ms, background-color 300ms;
-      color: $doclink-color;
       padding: 8px 15px;
       font-size: $sidebar-font-size;
 
-      &:hover {
+      &:not(.doc-link__active) {
         color: $doclink-hover-color;
+      }
+
+      &:hover {
         background-color: $doclink-hover-bg;
       }
     }
