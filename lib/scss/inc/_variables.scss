@@ -47,7 +47,7 @@ $headings-font-weight: $font-weight-bold !default;
 
 // Sidebar
 $sidebar-z-index: 10 !default;
-$sidebar-width: 320px !default;
+$sidebar-width: 300px !default;
 $sidebar-bg: $white !default;
 $sidebar-border-color: $sidebar-bg !default;
 $sidebar-font-size: $font-size-base - 2 !default;
@@ -60,8 +60,8 @@ $doclink-hover-bg: #f6f6f6 !default;
 $doclink-active-color: $headings-color !default;
 $doclink-active-before-bg: $black !default;
 $doclink-item-border-color: #e4e4e4 !default;
-$sidebar-close-hover-bg: rgba($white, 0.1) !default;
-$sidebar-close-fill: $white !default;
+$sidebar-close-hover-bg: rgba($black, 0.075) !default;
+$sidebar-close-fill: $black !default;
 $doclink-toggle-icon-stroke: $white !default;
 
 // Header
