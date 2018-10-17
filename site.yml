@@ -92,6 +92,14 @@ Documents:
         Link: https://github.com/minio/minio/blob/master/docs/compression/README.md
         Slug: minio-compression-guide
 
+      - Minio Multi-User Quickstart Guide:
+        Link: https://github.com/minio/minio/blob/master/docs/multi-user/README.md
+        Slug: minio-multi-user-quickstart-guide
+
+      - Minio STS Quickstart Guide:
+        Link: https://github.com/minio/minio/blob/master/docs/sts/README.md
+        Slug: minio-sts-quickstart-guide
+
   - Minio Client:
       - Minio Client Quickstart Guide:
         Link: https://raw.githubusercontent.com/minio/mc/master/README.md
