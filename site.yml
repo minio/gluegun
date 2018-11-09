@@ -195,10 +195,6 @@ Documents:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/rclone-with-minio.md
         Slug: rclone-with-minio-server
 
-      - Running Deis Workflow with Minio:
-        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/running-deis-workflow-with-minio.md
-        Slug: running-deis-workflow-with-minio
-
       - Setup Apache HTTP proxy with Minio Server:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/setup-apache-http-proxy-with-minio.md
         Slug: setup-apache-http-proxy-with-minio-server
@@ -211,10 +207,6 @@ Documents:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/running-minio-in-freenas.md
         Slug: how-to-run-minio-in-freenas
 
-      - How to use Cyberduck with Minio:
-        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-cyberduck-with-minio.md
-        Slug: how-to-use-cyberduck-with-minio
-
       - How to use AWS SDK for PHP with Minio Server:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-php-with-minio.md
         Slug: how-to-use-aws-sdk-for-php-with-minio-server
@@ -226,10 +218,6 @@ Documents:
       - How to use AWS SDK for Python with Minio Server:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-python-with-minio.md
         Slug: how-to-use-aws-sdk-for-python-with-minio-server
-
-      - How to use Mountain Duck with Minio:
-        Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-mountainduck-with-minio.md
-        Slug: how-to-use-mountain-duck-with-minio
 
       - How to use AWS SDK for JavaScript with Minio Server:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/aws-sdk-for-javascript-with-minio.md
@@ -258,10 +246,6 @@ Documents:
       - How to use Minio's server-side-encryption with aws-cli:
         Link: https://raw.githubusercontent.com/minio/cookbook/master/docs/how-to-use-minio-server-side-encryption-with-aws-cli.md
         Slug: how-to-use-minio-s-server-side-encryption-with-aws-cli
-
-      - How to deploy Alluxio with Minio:
-        Link: https://github.com/minio/cookbook/blob/master/docs/alluxio-with-minio.md
-        Slug: how-to-deploy-alluxio-with-minio
 
       - How to monitor Minio using Prometheus:
         Link: https://github.com/minio/cookbook/blob/master/docs/how-to-monitor-minio-with-prometheus.md
