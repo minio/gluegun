@@ -17,13 +17,19 @@
                         <%- heading.each do |key, value| -%>
                             <%= "<%- active_keywords = ['', ''] -\%\>" -%>
 
-                            <%= "<%- if defined?(categories) && categories.keys[0] ==='" + key + "'-\%\>" -%>
+                            <%= "<%- if !defined?(key2) && first_link -\%\>" -%>
 
                                 <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
 
-                            <%= "<%- elsif !defined?(key2) && first_link -\%\>" -%>
+                            <%= "<%- end -\%\>" -%>
 
-                                <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
+                            <%= "<%- if defined?(key2) && key2['Options'] != 'hidden' -\%\>" -%>
+
+                                <%= "<%- if defined?(categories) && categories.keys[0] ==='" + key + "'-\%\>" -%>
+
+                                    <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
+
+                                <%= "<%- end -\%\>" -%>
 
                             <%= "<%- end -\%\>" -%>
 
@@ -33,7 +39,7 @@
                                     </a>
                                     <ul class="doc-link__items" style='<%= "<%= active_keywords[1] -\%\>" -%>'>
                                         <%- value.each do |value2| -%>
-                                            <%- if !value2["Link"].nil? && reveal(raw(value2["Link"])) -%>
+                                            <%- if value2["Options"] != "hidden" && !value2["Link"].nil? && reveal(raw(value2["Link"])) -%>
                                                     <li>
                                                         <%- if !value2["Slug"] -%>
                                                             <%- value2["Slug"] = get_slug(value2) -%>
