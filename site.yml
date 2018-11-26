@@ -1,6 +1,6 @@
 Site: "Gluegun"
 Output: "docs"
-Logo: "https://minio.io/img/logo/wordmark_white.svg"
+Logo: "https://minio.io/img/logo/wordmark_black.svg"
 
 Language:
   - Chinese: https://gluegun.minio.io/cn
@@ -26,3 +26,8 @@ Documents:
       - Gluegun Theming Guide:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-theming-guide
+
+      - Gluegun Internal Page:
+        Link: https://github.com/minio/gluegun/blob/master/README.md
+        Slug: gluegun-internal-page
+        Options: hidden
