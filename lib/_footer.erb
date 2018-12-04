@@ -99,7 +99,8 @@
                             docsearch ({
                                 apiKey: '<%= categories["Algolia"]["apiKey"] %>',
                                 indexName: '<%= categories["Algolia"]["index"] %>',
-                                inputSelector: '.search__text'
+                                inputSelector: '.search__text',
+                                algoliaOptions: { 'facetFilters': ["tags: <%= categories["Algolia"]["tag"] %>"] }
                             });
                         </script>
                     <%- end -%>
