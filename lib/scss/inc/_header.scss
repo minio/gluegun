@@ -3,7 +3,7 @@
   align-items: flex-end;
   background-color: $header-bg;
   display: flex;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .search {
@@ -13,8 +13,8 @@
 .search__text {
   border: 0;
   border-bottom: 1px solid $border-color;
-  height: 45px;
-  padding: 0 0 0 30px;
+  height: 42px;
+  padding: 0 0 3px 30px;
   width: 100%;
   background: url(../img/icons/search.svg) no-repeat bottom 15px left;
   background-size: 14px;
