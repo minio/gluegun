@@ -80,7 +80,8 @@
   margin-bottom: 30px;
 
   & > img {
-    max-width:80px;
+    max-width: $max-width;
+    max-height: $max-height;
   }
 }
 
