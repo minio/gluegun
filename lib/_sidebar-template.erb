@@ -1,78 +1,81 @@
+    <%-# This intermediary file is required to generate the sidebar for each page -%>
+    <%-# The sidebar is generated once, included in each page, and active classes are toggled based on current page -%>
+    <%-# The output of this page can be seen on lib/_sidebar.erb once generated -%>
     <aside class="sidebar">
-        <div class="sidebar__inner">
-            <a href="" class="sidebar__close">
-                <svg class="sidebar__close__icon">
-                    <polygon points="15.8333324 5.34166622 14.6583325 4.16666642 9.99999942 8.82499958 5.34166622 4.16666642 4.16666642 5.34166622 8.82499958 9.99999942 4.16666642 14.6583325 5.34166622 15.8333324 9.99999942 11.1749992 14.6583325 15.8333324 15.8333324 14.6583325 11.1749992 9.99999942"></polygon>
-                </svg>
-            </a>
+      <div class="sidebar__inner">
+        <a href="" class="sidebar__close">
+          <svg class="sidebar__close__icon">
+            <polygon points="15.8333324 5.34166622 14.6583325 4.16666642 9.99999942 8.82499958 5.34166622 4.16666642 4.16666642 5.34166622 8.82499958 9.99999942 4.16666642 14.6583325 5.34166622 15.8333324 9.99999942 11.1749992 14.6583325 15.8333324 15.8333324 14.6583325 11.1749992 9.99999942"></polygon>
+          </svg>
+        </a>
 
-            <a href="/" class="logo">
-                <img src="<%= @site_map['Logo'] %>" alt="">
-            </a>
+        <a href="/" class="logo">
+          <img src="<%= @site_map['Logo'] %>" alt="">
+        </a>
 
-            <ul class="doc-link">
-                <% if !@site_map['Documents'].nil? %>
-                    <%= "<%- first_link = true -\%\>" -%>
-                    <%- @site_map['Documents'].each do |heading| -%>
-                        <%- heading.each do |key, value| -%>
-                            <%= "<%- active_keywords = ['', ''] -\%\>" -%>
-
-                            <%= "<%- if !defined?(key2) && first_link -\%\>" -%>
-
-                                <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
-
-                            <%= "<%- end -\%\>" -%>
-
-                            <%= "<%- if defined?(key2) && key2['Options'] != 'hidden' -\%\>" -%>
-
-                                <%= "<%- if defined?(categories) && categories.keys[0] ==='" + key + "'-\%\>" -%>
-
-                                    <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
-
-                                <%= "<%- end -\%\>" -%>
-
-                            <%= "<%- end -\%\>" -%>
-
-                                <li class='doc-link__category <%= "<%= active_keywords[0] -\%\>" -%>'>
-                                    <a href="" class="doc-link__header">
-                                        <%= key -%>
-                                    </a>
-                                    <ul class="doc-link__items" style='<%= "<%= active_keywords[1] -\%\>" -%>'>
-                                        <%- value.each do |value2| -%>
-                                            <%- if value2["Options"] != "hidden" && !value2["Link"].nil? && reveal(raw(value2["Link"])) -%>
-                                                    <li>
-                                                        <%- if !value2["Slug"] -%>
-                                                            <%- value2["Slug"] = get_slug(value2) -%>
-                                                        <%- end -%>
-                                                        <%= "<%- if defined?(key2) && key2['Slug'] === '" + value2['Slug'] + "'-\%\>" -%>
-
-                                                            <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html" class="doc-link__active">
-                                                                <%= value2.keys[0] -%>
-                                                            </a>
-                                                        <%= "<%- elsif !defined?(key2) && first_link -\%\>" -%>
-
-                                                            <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html" class="doc-link__active">
-                                                                <%= value2.keys[0] -%>
-                                                            </a>
-                                                            <%= "<%- first_link = false -\%\>" -%>
-
-                                                        <%= "<%- else -\%\>" -%>
-
-                                                            <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html">
-                                                                <%= value2.keys[0] -%>
-                                                            </a>
-                                                        <%= "<%- end -\%\>" -%>
-
-                                                    </li>
-                                            <%- end -%>
-                                        <%- end -%>
-                                    </ul>
-                                </li>
-                        <%- end -%>
+        <ul class="doc-link">
+          <% if !@site_map['Documents'].nil? %>
+            <%-# Keeps track of the first link for the case where index.html is created -%>
+            <%= "<%- first_link = true -\%\>" -%>
+            <%- @site_map['Documents'].each do |heading| -%>
+              <%- heading.each do |key, value| -%>
+                <%= "<%- active_keywords = ['', ''] -\%\>" -%>
+                <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
+                <%-# key2 is defined for all pages except for index.html -%>
+                <%-# For index.html, we set the active sidebar state only for the 1st title of the 1st category -%>
+                <%= "<%- if !defined?(key2) && first_link -\%\>" -%>
+                    <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
+                <%= "<%- end -\%\>" -%>
+                <%= "<%- if defined?(key2) && key2['Options'] != 'hidden' -\%\>" -%>
+                  <%-# categories is taken from gluegun.rb and is the category name of the page being generated -%>
+                  <%-# We check if the category names being looped through is equal to the category of the page -%>
+                  <%= "<%- if defined?(categories) && categories.keys[0] ==='" + key + "'-\%\>" -%>
+                      <%= "<%- active_keywords = ['toggled', 'display: block'] -\%\>" -%>
+                  <%= "<%- end -\%\>" -%>
+                <%= "<%- end -\%\>" -%>
+                <%-# We set the toggled state here for the sidebar headings depending on the category of the page -%>
+                <li class='doc-link__category <%= "<%= active_keywords[0] -\%\>" -%>'>
+                  <a href="" class="doc-link__header">
+                    <%= key -%>
+                  </a>
+                  <%-# Based on the category of the page, we display other titles of the same cat. in the sidebar-%>
+                  <%-# Meanwhile, titles in other categories are hidden unless categories are toggled -%>
+                  <ul class="doc-link__items" style='<%= "<%= active_keywords[1] -\%\>" -%>'>
+                    <%- value.each do |value2| -%>
+                      <%-# Check if the link for the document is not hidden and valid, otherwise don't create sidebar entry for it-%>
+                      <%- if value2["Options"] != "hidden" && !value2["Link"].nil? && reveal(raw(value2["Link"])) -%>
+                        <li>
+                          <%- if !value2["Slug"] -%>
+                            <%- value2["Slug"] = get_slug(value2) -%>
+                          <%- end -%>
+                          <%-# When we are not generating index.html -%>
+                          <%-# And if the current page slug matches the slug being looped through -%>
+                          <%= "<%- if defined?(key2) && key2['Slug'] === '" + value2['Slug'] + "'-\%\>" -%>
+                            <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html" class="doc-link__active">
+                                <%= value2.keys[0] -%>
+                            </a>
+                          <%-# If we are generating index.html -%>
+                          <%= "<%- elsif !defined?(key2) && first_link -\%\>" -%>
+                            <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html" class="doc-link__active">
+                                <%= value2.keys[0] -%>
+                            </a>
+                            <%-# Indicate that the processing has been done for the first link -%>
+                            <%= "<%- first_link = false -\%\>" -%>
+                          <%= "<%- else -\%\>" -%>
+                            <a href="/<%=@site_map['Output']%>/<%=value2["Slug"]%>.html">
+                                <%= value2.keys[0] -%>
+                            </a>
+                          <%= "<%- end -\%\>" -%>
+                        </li>
+                      <%- end -%>
                     <%- end -%>
-                 <% end %>
-            </ul>
-        </div>
+                  </ul>
+                </li>
+              <%- end -%>
+            <%- end -%>
+          <% end %>
+        </ul>
+      </div>
     </aside>
 
     <section class="content">

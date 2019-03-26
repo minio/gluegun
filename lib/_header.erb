@@ -1,55 +1,55 @@
-        <%= ERB.new(File.read('lib/_sidebar.erb'), nil, '-').result(binding) %>
-        
-        <header class="header">
-            <a href="" class="sidebar-toggle"></a>
+      <%= ERB.new(File.read('lib/_sidebar.erb'), nil, '-').result(binding) %>
+    
+      <header class="header">
+        <a href="" class="sidebar-toggle"></a>
 
-            <div class="search">
-                <input type="text" class="search__text" placeholder="Search documents...">
-            </div>
+        <div class="search">
+          <input type="text" class="search__text" placeholder="Search documents...">
+        </div>
 
-            <div class="doc-actions">
-                <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
-                <%-# key2 is defined for all pages except for index.html -%>
-                <%- if defined?(key2) -%>
-                    <%-# duplicate link to prevent original link from being modified -%>
-                    <%- doc_link = get_github_link(key2["Link"].dup) -%>
-                <%- else -%>
-                    <%-# duplicate link to prevent original link from being modified -%>
-                    <%- doc_link = get_github_link(@site_map['Documents'][0].values[0][0]["Link"].dup) -%>
+        <div class="doc-actions">
+          <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
+          <%-# key2 is defined for all pages except for index.html -%>
+          <%- if defined?(key2) -%>
+            <%-# duplicate link to prevent original link from being modified -%>
+            <%- doc_link = get_github_link(key2["Link"].dup) -%>
+          <%- else -%>
+            <%-# Use first entry specified under the 'Documents' key -%>
+            <%- doc_link = get_github_link(@site_map['Documents'][0].values[0][0]["Link"].dup) -%>
+          <%- end -%>
+
+          <div class="dropdown doc-actions__edit">
+              <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
+                <img src="/<%=@site_map['Output']%>/img/icons/edit.svg" alt="">
+                <span>Suggest an Edit</span>
+              </a>
+
+              <div class="dropdown__menu dropdown__menu--right">
+                <ol>
+                  <li>Log into Github.</li>
+                  <li>Edit files with your changes by clicking on 'Edit the file in your fork of this project' button in Github.</li>
+                  <li>Commit changes via 'Create a new branch for this commit and start a pull request'.</li>
+                </ol>
+
+                <a href="<%= doc_link -%>" class="button button--primary button--block">Edit in Github</a>
+              </div>
+          </div>
+
+          <% if !@site_map['Language'].nil? %>
+            <div class="dropdown">
+              <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
+                <img src="/<%=@site_map['Output']%>/img/icons/translate.svg" alt="">
+                <span>Translation</span>
+              </a>
+
+              <div class="dropdown__menu dropdown__menu--right">
+                <%- @site_map['Language'].each do |categories| -%>
+                  <%- categories.each do |key, value| -%>
+                    <a class="dropdown__item" href="<%=value -%>"><%= key -%></a>
+                  <%- end -%>
                 <%- end -%>
-
-                <div class="dropdown doc-actions__edit">
-                    <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
-                        <img src="/<%=@site_map['Output']%>/img/icons/edit.svg" alt="">
-                        <span>Suggest an Edit</span>
-                    </a>
-
-                    <div class="dropdown__menu dropdown__menu--right">
-                        <ol>
-                            <li>Log into Github.</li>
-                            <li>Edit files with your changes by clicking on 'Edit the file in your fork of this project' button in Github.</li>
-                            <li>Commit changes via 'Create a new branch for this commit and start a pull request'.</li>
-                        </ol>
-
-                        <a href="<%= doc_link -%>" class="button button--primary button--block">Edit in Github</a>
-                    </div>
-                </div>
-
-                <% if !@site_map['Language'].nil? %>
-                    <div class="dropdown">
-                        <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
-                            <img src="/<%=@site_map['Output']%>/img/icons/translate.svg" alt="">
-                            <span>Translation</span>
-                        </a>
-
-                        <div class="dropdown__menu dropdown__menu--right">
-                            <%- @site_map['Language'].each do |categories| -%>
-                                <%- categories.each do |key, value| -%>
-                                    <a class="dropdown__item" href="<%=value -%>"><%= key -%></a>
-                                <%- end -%>
-                            <%- end -%>
-                        </div>
-                    </div>
-                <%- end -%>
+              </div>
             </div>
-        </header>
+          <%- end -%>
+        </div>
+      </header>

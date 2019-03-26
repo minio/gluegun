@@ -1,6 +1,7 @@
 Site: "Gluegun"
 Output: "docs"
 Logo: "https://min.io/resources/img/logo/black-logo.svg"
+Author: "MinIO"
 
 Language:
   - Chinese: https://gluegun.minio.io/cn
@@ -21,13 +22,22 @@ Documents:
       - Gluegun Quick Start Guide:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-quick-start-guide
+        Title: "Gluegun | Quick Start Guide"
+        Description: "Learn how to get started with Gluegun."
+        Keywords: "Gluegun, generate documentation, MinIO"
 
   - Theming:
       - Gluegun Theming Guide:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-theming-guide
+        Title: "Gluegun | Theming Guide"
+        Description: "Learn how to theme documentation generated with Gluegun."
+        Keywords: "Gluegun, theme documentation pages, MinIO"
 
       - Gluegun Internal Page:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-internal-page
+        Title: "Gluegun | Internal Page"
+        Description: "Explore this internal page not visible on the sidebar."
+        Keywords: "Gluegun, internal page"
         Options: hidden
