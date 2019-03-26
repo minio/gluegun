@@ -2,7 +2,9 @@
 
 Site: "Site Title"                                                      # Required - Title of Site
 Output: "docs"                                                          # Required - Output directory where html files are generated
-Logo: "https://<domain.com>/url-to-logo.svg"                            # Site Branding
+Logo:                                                                   # Optional - Site Branding
+  Image: "https://<domain.com>/url-to-logo.svg"                         # Optional - Image for logo
+  Link: "https://<domain.com>/link-on-logo-click"                       # Optional - URL to navigate to when logo is clicked.
 SEO Author: "Author Name"                                               # Optional - Meta author tag for SEO
 
 Language:                                                               # Optional - Translation links
@@ -30,7 +32,9 @@ Documents:                                                              # Requir
 
 # Site: "Minio Docs"                                                    # Required - Title of Site
 # Output: "docs"                                                        # Required - Output directory where html files are generated
-# Logo: "https://minio.io/img/logo/wordmark_white.svg"                  # Site Branding
+# Logo:                                                                 # Optional - Site Branding
+#   Image: "https://min.io/resources/img/logo/MINIO_wordmark_black.png" # Optional - Image for logo
+#   Link: "https://min.io"                                              # Optional - URL to navigate to when logo is clicked.
 
 # Language:                                                             # Optional - Translation links
 #   - Chinese: https://docs.minio.io/cn
