@@ -1,7 +1,7 @@
 Site: "Gluegun"
 Output: "docs"
 Logo: "https://min.io/resources/img/logo/black-logo.svg"
-Author: "MinIO"
+SEO Author: "MinIO"
 
 Language:
   - Chinese: https://gluegun.minio.io/cn
@@ -22,22 +22,22 @@ Documents:
       - Gluegun Quick Start Guide:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-quick-start-guide
-        Title: "Gluegun | Quick Start Guide"
-        Description: "Learn how to get started with Gluegun."
-        Keywords: "Gluegun, generate documentation, MinIO"
+        SEO Title: "Gluegun | Quick Start Guide"
+        SEO Description: "Learn how to get started with Gluegun."
+        SEO Keywords: "Gluegun, generate documentation, MinIO"
 
   - Theming:
       - Gluegun Theming Guide:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-theming-guide
-        Title: "Gluegun | Theming Guide"
-        Description: "Learn how to theme documentation generated with Gluegun."
-        Keywords: "Gluegun, theme documentation pages, MinIO"
+        SEO Title: "Gluegun | Theming Guide"
+        SEO Description: "Learn how to theme documentation generated with Gluegun."
+        SEO Keywords: "Gluegun, theme documentation pages, MinIO"
 
       - Gluegun Internal Page:
         Link: https://github.com/minio/gluegun/blob/master/README.md
         Slug: gluegun-internal-page
-        Title: "Gluegun | Internal Page"
-        Description: "Explore this internal page not visible on the sidebar."
-        Keywords: "Gluegun, internal page"
+        SEO Title: "Gluegun | Internal Page"
+        SEO Description: "Explore this internal page not visible on the sidebar."
+        SEO Keywords: "Gluegun, internal page"
         Options: hidden
