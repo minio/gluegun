@@ -1,13 +1,11 @@
-        <section class="doc-preview">
-
-                <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
-                <%-# key2 is defined for all pages except for index.html -%>
-                <%- if defined?(key2) -%>
-                        <%- linked_doc = key2["Link"] -%>
-                <%- else -%>
-
-                        <%-# Take the first link from the .yml file while generating index.html -%>
-                        <%- linked_doc =  @site_map['Documents'][0].values[0][0]["Link"] -%>
-                <%- end -%>
-                <%=  reveal(raw(linked_doc)) -%>
-        </section>
+      <section class="doc-preview">
+        <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
+        <%-# key2 is defined for all pages except for index.html -%>
+        <%- if defined?(key2) -%>
+          <%- linked_doc = key2["Link"] -%>
+        <%- else -%>
+          <%-# Take the first link from the .yml file while generating index.html -%>
+          <%- linked_doc =  @site_map['Documents'][0].values[0][0]["Link"] -%>
+        <%- end -%>
+        <%=  reveal(raw(linked_doc)) -%>
+      </section>

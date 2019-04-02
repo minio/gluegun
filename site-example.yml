@@ -3,6 +3,7 @@
 Site: "Site Title"                                                      # Required - Title of Site
 Output: "docs"                                                          # Required - Output directory where html files are generated
 Logo: "https://<domain.com>/url-to-logo.svg"                            # Site Branding
+SEO Author: "Author Name"                                               # Optional - Meta author tag for SEO
 
 Language:                                                               # Optional - Translation links
   - Chinese: https://<domain.com>/cn
@@ -15,10 +16,14 @@ Plugins:                                                                # Option
   - Google Analytics: "UA-XXXXX-Y"
 
 Documents:                                                              # Required - Documents with links to generate site
-  - Category Heading:                                                   # Required- Category Name
+  - Category Heading:                                                   # Required - Category Name
       - Document Title:                                                 # Required - Document Title
         Link: github link to the raw md file                            # Required - Document Link     
         Slug: document-title                                            # Optional - Document Slug
+        SEO Title: "Document Title"                                     # Optional - Page title tag
+        SEO Description: "Description"                                  # Optional - Meta description tag for SEO
+        SEO Keywords: "keyword1, keyword2, keyword3"                    # Optional - Meta keywords tag for SEO
+        Options: hidden                                                 # Optional - The value 'hidden' allows user to render page but hide sidebar link
 
 
 # Full Example Shown Below

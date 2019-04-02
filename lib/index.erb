@@ -4,10 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="<%= @site_map["SEO Author"] %>">
 
-    <title><%= @site_map['Site'] %></title>
+    <%-# key2 comes from gluegun.rb and denotes current document being generated -%>
+    <%-# key2 is defined for all pages except for index.html -%>
+    <%- if defined?(key2) -%>
+      <%- if !key2["SEO Title"] -%>
+        <%-# if title not specified, default to site title and document name -%>
+        <title><%= @site_map['Site'] + " | " + key2.keys[0] %></title>
+      <%- else -%>
+        <title><%= key2["SEO Title"] %></title>
+      <%- end -%>
+      <meta name="description" content="<%= key2["SEO Description"] %>">
+      <meta name="keywords" content="<%= key2["SEO Keywords"] %>">
+    <%- else -%>
+      <%-# Take first entry specified under the 'Documents' key for index page-%>
+      <%- if !@site_map['Documents'][0].values[0][0]["SEO Title"] -%>
+        <%-# if title not specified, default to site title and document name -%>
+        <title><%= @site_map['Site'] + " | " + @site_map['Documents'][0].values[0][0].keys[0] %></title>
+      <%- else -%>
+        <title><%= @site_map['Documents'][0].values[0][0]["SEO Title"] %></title>
+      <%- end -%>
+      <meta name="description" content="<%= @site_map['Documents'][0].values[0][0]["SEO Description"] %>">
+      <meta name="keywords" content="<%= @site_map['Documents'][0].values[0][0]["SEO Keywords"] %>">
+    <%- end -%>
 
     <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
     <link href="/<%=@site_map['Output']%>/css/gluegun.min.css" rel="stylesheet">
