@@ -35,7 +35,7 @@
               </div>
           </div>
 
-          <% if !@site_map['Language'].nil? %>
+          <% if !@site_map['OtherLanguages'].nil? %>
             <div class="dropdown">
               <a href="" class="dropdown__toggle dropdown__toggle--caret doc-actions__item">
                 <img src="/<%=@site_map['Output']%>/img/icons/translate.svg" alt="">
@@ -43,7 +43,7 @@
               </a>
 
               <div class="dropdown__menu dropdown__menu--right">
-                <%- @site_map['Language'].each do |categories| -%>
+                <%- @site_map['OtherLanguages'].each do |categories| -%>
                   <%- categories.each do |key, value| -%>
                     <a class="dropdown__item" href="<%=value -%>"><%= key -%></a>
                   <%- end -%>

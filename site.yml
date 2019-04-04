@@ -2,8 +2,9 @@ Site: "Gluegun"
 Output: "docs"
 Logo: "https://min.io/resources/img/logo/black-logo.svg"
 SEO Author: "MinIO"
+Language: "en"
 
-Language:
+OtherLanguages:
   - Chinese: https://gluegun.minio.io/cn
   - Japanese: https://gluegun.minio.io/jp 
 
