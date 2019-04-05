@@ -13,8 +13,8 @@
           <% if @site_map['Logo']['Link'] %>
             <a href="<%= @site_map['Logo']['Link'] %>" class="logo">
           <% else %>
-            <%-# Redirect to "/" if link not present -%>
-            <a href="/" class="logo">
+            <%-# Keep user on current page if link not present -%>
+            <a href="#" class="logo">
           <% end %>
           <% if @site_map['Logo']['Image'] %>
               <img src="<%= @site_map['Logo']['Image'] %>" alt="">
@@ -24,9 +24,9 @@
           <% end %>
             </a>
         <% else %>
-          <%-# Redirect to "/" if link not present -%>
+          <%-# Keep user on current page if link not present -%>
           <%-# Add site name as a link if image not present -%>
-          <a href="/" class="logo">
+          <a href="#" class="logo">
             <%= @site_map['Site'] %>
           </a>
         <% end %>
