@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= @site_map['Language'] %>">
+<html lang="<%= ISO_639.find_by_english_name(@site_map['Language']).alpha2 %>">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,6 +17,14 @@
       <%- end -%>
       <meta name="description" content="<%= key2["SEO Description"] %>">
       <meta name="keywords" content="<%= key2["SEO Keywords"] %>">
+
+      <%- if !@site_map['Languages'].nil? && !key2["SEO Languages"].nil? -%>
+        <link rel="alternate" hreflang="<%= ISO_639.find_by_english_name(@site_map['Language']).alpha2 %>" href="<%=@site_map['Languages'][@site_map['Language']]%>/<%=key2["Slug"]%>.html" title="lang">
+        
+        <% key2["SEO Languages"].each do |lang| %>
+          <link rel="alternate" hreflang="<%= ISO_639.find_by_english_name(lang).alpha2 %>" href="<%=@site_map['Languages'][lang]%>/<%=key2["Slug"]%>.html" title="lang">
+        <% end %>
+      <%- end -%>
     <%- else -%>
       <%-# Take first entry specified under the 'Documents' key for index page-%>
       <%- if !@site_map['Documents'][0].values[0][0]["SEO Title"] -%>
