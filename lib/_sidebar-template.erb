@@ -9,9 +9,27 @@
           </svg>
         </a>
 
-        <a href="/" class="logo">
-          <img src="<%= @site_map['Logo'] %>" alt="">
-        </a>
+        <% if !@site_map['Logo'].nil? %>
+          <% if @site_map['Logo']['Link'] %>
+            <a href="<%= @site_map['Logo']['Link'] %>" class="logo">
+          <% else %>
+            <%-# Keep user on current page if link not present -%>
+            <a href="#" class="logo">
+          <% end %>
+          <% if @site_map['Logo']['Image'] %>
+              <img src="<%= @site_map['Logo']['Image'] %>" alt="">
+          <% else %>
+              <%-# Add site name as a link if image not present -%>
+              <%= @site_map['Site'] %>
+          <% end %>
+            </a>
+        <% else %>
+          <%-# Keep user on current page if link not present -%>
+          <%-# Add site name as a link if image not present -%>
+          <a href="#" class="logo">
+            <%= @site_map['Site'] %>
+          </a>
+        <% end %>
 
         <ul class="doc-link">
           <% if !@site_map['Documents'].nil? %>
