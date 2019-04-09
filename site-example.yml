@@ -6,10 +6,12 @@ Logo:                                                                   # Option
   Image: "https://<domain.com>/url-to-logo.svg"                         # Optional - Image for logo
   Link: "https://<domain.com>/link-on-logo-click"                       # Optional - URL to navigate to when logo is clicked.
 SEO Author: "Author Name"                                               # Optional - Meta author tag for SEO
+Language: "English"                                                     # Required - Current language of the pages in this doc
 
-Language:                                                               # Optional - Translation links
-  - Chinese: https://<domain.com>/cn
-  - Japanese: https://<domain.com>/jp
+Languages:                                                              # Optional - Translation links
+  English: https://<domain.com>/en
+  Chinese: https://<domain.com>/cn
+  Japanese: https://<domain.com>/jp
 
 Plugins:                                                                # Optional - Plugins  (Algolia for search and Google Analytics)
   - Algolia:
@@ -25,6 +27,8 @@ Documents:                                                              # Requir
         SEO Title: "Document Title"                                     # Optional - Page title tag
         SEO Description: "Description"                                  # Optional - Meta description tag for SEO
         SEO Keywords: "keyword1, keyword2, keyword3"                    # Optional - Meta keywords tag for SEO
+        SEO Languages:                                                  # Optional - Transaltions for SEO
+          - Chinese
         Options: hidden                                                 # Optional - The value 'hidden' allows user to render page but hide sidebar link
 
 

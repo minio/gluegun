@@ -4,6 +4,7 @@ require 'open-uri'
 require 'github/markdown'
 require 'erb'
 require 'fileutils'
+require 'iso-639'
 
 module Gluegun
 

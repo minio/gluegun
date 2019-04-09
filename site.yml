@@ -4,10 +4,12 @@ Logo:
   Image: "https://min.io/resources/img/logo/MINIO_wordmark_black.png"
   Link: "https://min.io"
 SEO Author: "MinIO"
+Language: "English"
 
-Language:
-  - Chinese: https://gluegun.minio.io/cn
-  - Japanese: https://gluegun.minio.io/jp 
+Languages:
+  English: "https://gluegun.minio.io/en"
+  Chinese: https://gluegun.minio.io/cn
+  Japanese: https://gluegun.minio.io/jp 
 
 Plugins:
   - Algolia:
@@ -27,6 +29,8 @@ Documents:
         SEO Title: "Gluegun | Quick Start Guide"
         SEO Description: "Learn how to get started with Gluegun."
         SEO Keywords: "Gluegun, generate documentation, MinIO"
+        SEO Languages:
+          - Chinese
 
   - Theming:
       - Gluegun Theming Guide:
