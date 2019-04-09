@@ -43,11 +43,9 @@
               </a>
 
               <div class="dropdown__menu dropdown__menu--right">
-                <%- @site_map['Languages'].each do |categories| -%>
-                  <%- categories.each do |key, value| -%>
-                    <%- unless key == @site_map['Language']%>
-                      <a class="dropdown__item" href="<%=value -%>"><%= key -%></a>
-                    <%- end -%>
+                <%- @site_map['Languages'].each do |key, value| -%>
+                  <%- unless key == @site_map['Language']%>
+                    <a class="dropdown__item" href="<%=value -%>"><%= key -%></a>
                   <%- end -%>
                 <%- end -%>
               </div>

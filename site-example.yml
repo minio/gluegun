@@ -4,7 +4,7 @@ Site: "Site Title"                                                      # Requir
 Output: "docs"                                                          # Required - Output directory where html files are generated
 Logo: "https://<domain.com>/url-to-logo.svg"                            # Site Branding
 SEO Author: "Author Name"                                               # Optional - Meta author tag for SEO
-Language: "English"                                                     # Required - Language of the docs
+Language: "English"                                                     # Required - Current language of the pages in this doc
 
 Languages:                                                              # Optional - Translation links
   English: https://<domain.com>/en

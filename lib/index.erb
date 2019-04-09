@@ -25,6 +25,7 @@
           <link rel="alternate" hreflang="<%= ISO_639.find_by_english_name(lang).alpha2 %>" href="<%=@site_map['Languages'][lang]%>/<%=key2["Slug"]%>.html" title="lang">
         <% end %>
       <%- end -%>
+      <%-# this is the case where we render index.html -%>
     <%- else -%>
       <%-# Take first entry specified under the 'Documents' key for index page-%>
       <%- if !@site_map['Documents'][0].values[0][0]["SEO Title"] -%>
@@ -35,6 +36,14 @@
       <%- end -%>
       <meta name="description" content="<%= @site_map['Documents'][0].values[0][0]["SEO Description"] %>">
       <meta name="keywords" content="<%= @site_map['Documents'][0].values[0][0]["SEO Keywords"] %>">
+
+      <%- if !@site_map['Languages'].nil? && !@site_map['Documents'][0].values[0][0]["SEO Languages"].nil? -%>
+        <link rel="alternate" hreflang="<%= ISO_639.find_by_english_name(@site_map['Language']).alpha2 %>" href="<%=@site_map['Languages'][@site_map['Language']]%>" title="lang" />
+
+        <%- @site_map['Documents'][0].values[0][0]["SEO Languages"].each do |lang| -%>
+          <link rel="alternate" hreflang="<%= ISO_639.find_by_english_name(lang).alpha2 %>" href="<%=@site_map['Languages'][lang]%>" title="lang" />
+        <%- end -%>
+      <%- end -%>
     <%- end -%>
 
     <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
