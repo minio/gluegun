@@ -27,6 +27,11 @@
       <%- end -%>
       <meta name="description" content="<%= @site_map['Documents'][0].values[0][0]["SEO Description"] %>">
       <meta name="keywords" content="<%= @site_map['Documents'][0].values[0][0]["SEO Keywords"] %>">
+
+      <%- if !@site_map['Documents'][0].values[0][0]["Slug"] -%>
+        <%- @site_map['Documents'][0].values[0][0]["Slug"] = get_slug(@site_map['Documents'][0].values[0][0]) -%>
+      <%- end -%>
+      <link rel="canonical" href="/<%=@site_map['Output']%>/<%=@site_map['Documents'][0].values[0][0]["Slug"]%>.html" />
     <%- end -%>
 
     <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
