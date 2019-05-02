@@ -15,6 +15,7 @@ Plugins:
       index: "INDEX_NAME"
   - Google Analytics: "UA-XXXXX-Y"
   - Mixpanel: "MIXPANEL_TOKEN"
+  - HubSpot: "HUBSPOT_TOKEN"
   - Footer Widget:
       Label: "Talk to community"
       Link: "/"
